@@ -1,0 +1,6 @@
+<!--pages/invoice/invoice.wxml-->
+<view class='function'>
+  <view class='Order_center' wx:for="{{list}}" wx:key="item.name" data-route='{{item.route}}' bindtap='_showorder'>
+      <text class='txt_order'>{{item.name}}</text>
+  </view>
+</view>

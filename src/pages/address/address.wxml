@@ -1,0 +1,23 @@
+
+<view>
+  <view
+    wx:for="{{array}}"
+    wx:key="index"
+    data-index='{{index}}'
+    class='{{item.class}} listooist'
+    bindtouchstart="drawStart"
+    bindtouchmove="drawMove"
+    bindtouchend="drawEnd"
+  >
+    <view class="listcenter" data-touch='{{item.touch}}' data-state='{{item.state}}' bindtap='_showAddress' style="transform: translateX(-{{item.right}}rpx)">
+      <view class="listLeft">
+        <image src='{{item.src}}' class='listicon'></image>
+        <text>{{item.key}}</text>
+      </view>
+      <text class='txt'>{{item.value|| item.plocathle}}</text>
+    </view>
+    <view class="remove" data-value='{{item.value}}' data-state='{{item.state}}' bindtap='_showremove'>
+      删除
+    </view>
+  </view>
+</view>

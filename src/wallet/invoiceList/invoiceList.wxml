@@ -1,0 +1,22 @@
+<!--wallet/invoiceList/invoiceList.wxml-->
+<view class='container'>
+  <block wx:for="{{tableList}}" wx:item="item" wx:key="index">
+    <view class="invice" data-id="{{item.id}}" bindtap="bindDetail">
+      <view class="detail">
+        <time>{{item.time}}</time>
+        <text class="text">已开发票</text>
+      </view>
+      <view class="left-type" style="margin: 34rpx 0 12rpx;">
+        电子发票
+      </view>
+      <view class="left-type detail">
+        <text>开票金额</text>
+        <menty class="menty">{{item.invoiceMoney || 0}}<text>元</text></menty>
+      </view>
+    </view>
+  </block>
+
+  <view class='content' wx:if="{{invoice == '0'}}">
+    <image mode="widthFix" src='../../image/noInviceList.png' class='ordericon'></image>
+  </view>
+</view>

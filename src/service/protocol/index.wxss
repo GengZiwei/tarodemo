@@ -1,0 +1,4 @@
+/* service/protocol/index.wxss */
+.rich{
+  font-size: 24rpx;
+}

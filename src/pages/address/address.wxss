@@ -1,0 +1,45 @@
+
+page{
+  background-color: #f7f7f7;
+}
+.listcenter{
+  padding: 40rpx 30rpx;
+  font-size: 24rpx;
+  position: relative;
+  text-align: end;
+  color: #929292;
+  background: #fff;
+  z-index: 1;
+}
+.listooist {
+  position: relative;
+}
+.listborder{
+  border-bottom: 1px solid #e5e5e5;
+}
+.listLeft{
+  display: inline-block;
+  position: absolute;
+  left: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.listicon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 30rpx;
+}
+
+.remove{
+  height: 100%;
+  width: 110rpx;
+  text-align: center;
+  line-height: 110rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 24rpx;
+  color: #fff;
+  z-index: 0;
+  background-color: rgb(223, 31, 31);
+}

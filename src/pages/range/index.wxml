@@ -1,0 +1,10 @@
+<!--pages/range/index.wxml-->
+<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+<view class="main">
+  <view class="rangeText">
+    您选择的位置，暂未开通服务。离您最近的运营范围请看下图：
+  </view>
+  <view class="mapPic">
+    <image src="/image/range.jpg"></image>
+  </view>
+</view>

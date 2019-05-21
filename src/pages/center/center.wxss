@@ -1,0 +1,86 @@
+/* pages/center/center.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.container{
+  border-top: 1px solid #e5e5e5;
+  color: #333333;
+}
+.center{
+  width: 100%;
+  height: 280rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  font-size: 36rpx;
+}
+.userinfo-avatar{
+  overflow: hidden;
+  display: block;
+  width: 110rpx;
+  height: 110rpx;
+  margin: 50rpx auto 30rpx;
+  border-radius: 50%;
+}
+.open-data{
+  width: 110rpx;
+  height: 110rpx;
+  margin: 50rpx auto 30rpx;
+  border-radius: 110rpx; 
+}
+.function{
+  width: 100%;
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+.Order_center{
+   border-bottom: 1px solid #e5e5e5;
+}
+.Order_center,
+.more{
+  width: 91.67%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  font-size: 32rpx;
+  color: #333333;
+}
+.Order_center::after,
+.more::after{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 20rpx;
+  height: 20rpx;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform: translateY(-50%) rotate(45deg);
+  background-color:#FFF;
+  border-color: #929292;
+  border-right:solid 1rpx ;
+  border-top:solid 1rpx ;
+}
+.ordericon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.txt_order,
+.txt_more{
+  margin-left: 30rpx;
+  padding: 34rpx 0;
+  color: #333333;
+}
+.in_icon{
+  width: 14rpx;
+  height: 24rpx;
+  position: absolute;
+  right: 0;
+}
+.moreicon{
+  width: 30rpx;
+  height: 30rpx;
+}

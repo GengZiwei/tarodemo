@@ -1,0 +1,11 @@
+@import "../order_progress/index.wxss";
+.dialog-longline{
+  width: 100%;
+  height: 2rpx;
+  background: #e2e2e2;
+}
+.btnpay{
+  background-color: #003478;
+  color: #fff;
+  font-size: 32rpx;
+}

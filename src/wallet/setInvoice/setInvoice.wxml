@@ -1,0 +1,83 @@
+<!--wallet/setInvoice/setInvoice.wxml-->
+<view class="header">
+  <text class="{{headerTap && 'headerTap'}}" data-tap="{{true}}" bindtap="setHeaderTap">电子发票</text>
+  <!-- <text class="{{!headerTap && 'headerTap'}}" data-tap="{{false}}" bindtap="setHeaderTap">纸质发票</text> -->
+</view>
+<view class="swiper-view">
+  <text class="left-text">发票类型</text>
+  <view class="right-input right-img">
+    <image src="{{electronicSwitchImg ? '/image/reude.png' : '/image/noreude.png'}}" data-switchdata="{{true}}" bindtap='electronicSwitch' />
+    <text style="margin-right: 90rpx" data-switchdata="{{true}}" bindtap='electronicSwitch'>个人</text>
+    <image src="{{electronicSwitchImg ? '/image/noreude.png' : '/image/reude.png'}}" data-switchdata="{{false}}" bindtap='electronicSwitch' />
+    <text data-switchdata="{{false}}" bindtap='electronicSwitch'>企业</text>
+  </view>
+</view>
+<view wx:for="{{electronicSwitchImg ? electronicPersonal : electronicEnterprise}}" wx:key="{{index + item.value}}" class="swiper-view">
+  <text class="left-text">{{item.text}}</text>
+  <view class="right-input {{item.arrow && 'arrow'}}" bindtap="{{item.arrow ? 'purchaser' : ''}}">
+    <text class="purchaser" wx:if="{{item.title}}">{{item.placeholder}}</text>
+    <input
+      wx:else
+      value="{{electronicSwitchImg ? electronicPersonalDate[item.value] : electronicEnterpriseDate[item.value]}}"
+      data-value="{{electronicSwitchImg ? 'electronicPersonalDate' : 'electronicEnterpriseDate'}}"
+      data-data="{{item.value}}"
+      bindblur="bindblur"
+      placeholder="{{item.placeholder}}"
+      placeholder-style
+      placeholder-class="input-placeholder"/>
+  </view>
+</view>
+<view class="button" bindtap="submit">提交</view>
+<!-- <swiper
+  style="height:{{ current == 0 ? electronicSwitchImg ? electronicPersonal.length * 120 + 'rpx' : electronicEnterprise.length * 120 + 'rpx' : paperSwitchImg ? paperPersonal.length * 120 + 'rpx' : paperEnterprise.length * 120 + 'rpx'}}"
+  current="{{current}}" easing-function="easeOutCubic" duration="200" bindchange="swiperChang">
+  <swiper-item>
+    <view class="swiper-view">
+      <text class="left-text">发票类型</text>
+      <view class="right-input right-img">
+        <image src="{{electronicSwitchImg ? '/image/reude.png' : '/image/noreude.png'}}" data-switchdata="{{true}}" bindtap='electronicSwitch' />
+        <text style="margin-right: 90rpx" data-switchdata="{{true}}" bindtap='electronicSwitch'>个人</text>
+        <image src="{{electronicSwitchImg ? '/image/noreude.png' : '/image/reude.png'}}" data-switchdata="{{false}}" bindtap='electronicSwitch' />
+        <text data-switchdata="{{false}}" bindtap='electronicSwitch'>企业</text>
+      </view>
+    </view>
+    <view wx:for="{{electronicSwitchImg ? electronicPersonal : electronicEnterprise}}" wx:key="{{index + item.value}}" class="swiper-view">
+      <text class="left-text">{{item.text}}</text>
+      <view class="right-input">
+        <input
+          value="{{electronicSwitchImg ? electronicPersonalDate[item.value] : electronicEnterpriseDate[item.value]}}"
+          data-value="{{electronicSwitchImg ? 'electronicPersonalDate' : 'electronicEnterpriseDate'}}"
+          data-data="{{item.value}}"
+          bindblur="bindblur"
+          placeholder="{{item.placeholder}}"
+          placeholder-style
+          placeholder-class="input-placeholder"/>
+      </view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view class="swiper-view">
+      <text class="left-text">发票类型</text>
+      <view class="right-input right-img">
+        <image src="{{paperSwitchImg ? '/image/reude.png' : '/image/noreude.png'}}" data-switchdata="{{true}}" bindtap='paperSwitch' />
+        <text style="margin-right: 90rpx" data-switchdata="{{true}}" bindtap='paperSwitch'>个人</text>
+        <image src="{{paperSwitchImg ? '/image/noreude.png' : '/image/reude.png'}}" data-switchdata="{{false}}" bindtap='paperSwitch' />
+        <text data-switchdata="{{false}}" bindtap='paperSwitch'>企业</text>
+      </view>
+    </view>
+    <view wx:for="{{paperSwitchImg ? paperPersonal : paperEnterprise}}" wx:key="{{index + item.value}}" class="swiper-view">
+      <text class="left-text">{{item.text}}</text>
+      <view class="right-input">
+        <input
+          value="{{paperSwitchImg ? paperPersonalDate[item.value] : paperEnterpriseDate[item.value]}}"
+          data-value="{{paperSwitchImg ? 'paperPersonalDate' : 'paperEnterpriseDate'}}"
+          data-data="{{item.value}}"
+          bindblur="bindblur"
+          placeholder="{{item.placeholder}}"
+          placeholder-style
+          placeholder-class="input-placeholder"/>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+ -->

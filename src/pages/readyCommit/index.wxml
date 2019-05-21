@@ -1,0 +1,60 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="map_container">
+    <!--定义页面结构，可以使用地图组件也能使用其他组件 -->
+    <map
+      id="myMap"
+      subkey="{{subkey}}"
+      style="width: 100%; height: 100%;"
+      scale="{{6}}"
+      markers="{{markers}}"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      include-points="{{includePoints}}"
+      bindmarkertap="getMarker"
+      show-location
+    ></map>
+  </view>
+  <call class="resetView" style="left:0"></call>
+  <!-- <cover-view class="resetView" style="left:0"></cover-view> -->
+  <cover-view class="resetView" style="right:20rpx;">
+    <cover-image bindtap='moveToLocation' class="reset" src="../../image/ico-reset.png"></cover-image>
+  </cover-view>
+
+  <view class="address">
+    <view class="address-input">
+      <view class="start-Location" style="max-width: 55%">{{starword.isName}}
+      </view>
+      <view class="remarks">
+        (<view>上车站点</view>)
+      </view>
+      <picker bindchange="bindPickerChange" value="{{pickindex}}" range-key="isName" range="{{pickstart}}">
+        <view class="image">
+          <image src="/image/ico-down.png"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="recommend-text">
+      <text wx:if="{{isStart}}">已为您推荐最近站点</text>
+    </view>
+    <view class="address-input endPoint">
+      <view class="end-Location" bindtap='bindEndInput' style="max-width: 55%">
+        <text wx:if="{{!endword.isName}}">下车</text>{{endword.isName}}
+      </view>
+      <view class="remarks">(<view>下车站点</view>)</view>
+      <picker bindchange="bindPickerChange" data-pick="end" range-key="isName" value="{{pickindex}}" range="{{picksend}}">
+        <view class="image">
+          <image src="/image/ico-down.png"></image>
+        </view>
+      </picker>
+    </view>
+    <!-- <view class="recommend-text recommend-endtext" style="border-left: none">
+      <text wx:if="{{endword.isName}}">已为您推荐最近下车站点</text>
+    </view> -->
+    <!-- <view class="address-input">
+      <view class="end-Location">{{endPoint.keywords}}</view>
+    </view> -->
+    <button disabled="{{endword.typeID == starword.typeID || !(endword.name)}}" bindtap="submitPath" class="btn-submit">确认</button>
+  </view>
+</view>

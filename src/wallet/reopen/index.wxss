@@ -1,0 +1,47 @@
+/* order/reopen/index.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.list-type{
+  height: 80rpx;
+  font-size: 26rpx;
+  margin: 20rpx 0; 
+  color: #666;
+  line-height: 80rpx;
+  background-color: #fff;
+  position: relative;
+  white-space:pre;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.list-type .type-left{
+  width: 200rpx;
+  color: #aaa;
+  margin-left: 30rpx;
+  display: inline-block;
+}
+.list-type .font-space{
+  position: absolute;
+  top: 0;
+  padding-left: 200rpx;
+  height: 80rpx;
+}
+.text{
+  font-size: 26rpx;
+  width: 720rpx;
+  margin: 0 auto;
+  color: #999;
+}
+
+.reopen{
+  width: 650rpx;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  padding: 20rpx;
+  margin: 30rpx auto;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  background-color: #003478;
+}

@@ -1,0 +1,9 @@
+<!--order/reopen/index.wxml-->
+<view class="list-type">
+  <text class="type-left">电子邮箱</text>
+  <input class="font-space" data-value="detail" data-data="email" value="{{detail.email}}" bindblur="bindblur" placeholder="请填写电子邮箱" />
+</view>
+<view class="text">说明： 请输入新邮箱后，在提交，系统会给您重新发送电子发票和行程单</view>
+<view class="reopen" bindtap="reopen">
+  提交
+</view>

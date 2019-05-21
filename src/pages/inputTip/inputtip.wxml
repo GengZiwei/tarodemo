@@ -1,0 +1,30 @@
+<view class="section">
+  <text>杭州</text>
+  <input bindinput="bindInput" placeholder-class="phStyle" value="{{value}}" placeholder="搜索" auto-focus />
+  <text bindtap="remove">取消</text>
+</view>
+
+<view class="address" wx:if="{{seach}}">
+  <view class="flex_address" data-district="{{homeAddress.address}}" data-location="{{homeAddress.gps}}" data-keywords="{{homeAddress.address}}" data-start="1" bindtap="showAddress">
+    <image src="../../image/home.png" alt="" srcset="" />
+    <view>
+      <view>家</view>
+      <text>{{homeAddress.address ||'设置家庭地址'}}</text>
+    </view>
+  </view>
+  <view class="border"></view>
+  <view class="flex_address" data-district="{{company.address}}" data-location="{{company.gps}}" data-keywords="{{company.address}}" data-start="0" bindtap="showAddress">
+    <image src="../../image/company.png" alt="" srcset="" />
+    <view>
+      <view>公司</view>
+      <text>{{company.address || '设置公司地址'}}</text>
+    </view>
+  </view>
+</view>
+
+<view bindtap="bindSearch" data-district="{{item.district}}" data-location="{{item.location}}" data-keywords="{{item.name}}" class="text_box" wx:for="{{tips}}" wx:key="key">
+  <image class="searchIMg {{item.state ? 'history':'search'}}" src="{{item.img}}" />
+  <view class="tip-name">{{item.name}}</view>
+  <view class="tip-address">{{item.district}}</view>
+  <view class="tip-distance">{{item.distance}}</view>
+</view>

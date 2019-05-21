@@ -1,0 +1,17 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "pinleba",
+	"description": "拼了吧为您提供拼便捷、轻量的服务。",
+	"appid": "wxc61973174bd14a17",
+	"setting": {
+    "checkSiteMap": false,
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {}
+}

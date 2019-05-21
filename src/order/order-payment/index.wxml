@@ -1,0 +1,56 @@
+<!--pages/order-payment/index.wxml-->
+<view class='container'>
+  <view class='order-info'>
+    <view class='title'>订单信息</view>
+    <view class='content'>
+        <view class='content-public'>
+          <text>车辆信息</text>
+          <text>{{color}} {{type}} {{license}}</text>
+        </view>
+        <view class='content-public'>
+          <text>出发时间</text>
+          <text>{{dataTime}}</text>
+        </view>
+        <view class='content-public'>
+          <text>上车人数</text>
+          <text>{{number}}位</text>
+        </view>
+        <block wx:if="{{status}}">
+          <view class='content-public'>
+            <text>调度费</text>
+            <text class='money'>￥{{money}}</text>
+          </view>
+          <view wx:if="{{relief != 0}}" class='content-public'>
+            <text>限时减免</text>
+            <text>-￥{{relief}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='content-public'>
+            <text>订单金额</text>
+            <text class='money'>￥{{money}}</text>
+          </view>
+          <view class='content-public' bindtap="toCoupon">
+            <text>优惠券抵扣</text>
+            <text class='coupon'>{{coupon ? '-￥' + coupon : ''}}</text>
+          </view>
+          <view wx:if="{{lateStatus}}" class='content-public'>
+            <text>晚点补偿</text>
+            <text style="color: #eb6622">-￥{{late}}</text>
+          </view>
+          <view class='content-public last'>
+            <text>待支付金额</text>
+            <text class='money'>￥{{paidmoney || money}}</text>
+          </view>
+        </block>
+    </view>
+  </view>
+  <view class='payment-method'>
+    <text class='method'>支付方式</text>
+    <view class='pay_weixin'>
+      <image src='../../image/weixin.jpg' class='weixin_icon'></image>
+      <text class='pay'>微信支付</text> 
+    </view>
+  </view>
+  <button class='confirm' bindtap='pay'>确认支付</button>
+</view>

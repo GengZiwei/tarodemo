@@ -1,0 +1,85 @@
+/* pages/order-payment/index.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.container{
+  color: #666666;
+}
+.order-info{
+   font-size:28rpx;
+   background-color: #fff;
+   width: 100%;
+}
+.title,
+.payment-method .method{
+  font-size: 34rpx;
+  color: #333;
+  padding: 30rpx 0;
+  padding-left: 33rpx;
+  border-bottom: 1px solid #dddddd;
+}
+.content-public{
+  padding: 26rpx 0;
+  margin: 0 33rpx;
+  border-top: 1px solid #f6f6f6;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.money{
+  color: #d0021b;
+}
+.coupon{
+  color: #eb6622;
+  position: relative;
+  padding-right: 20rpx;
+}
+.coupon::after{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 15rpx;
+  height: 15rpx;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform: translateY(-50%) rotate(45deg);
+  border-right:#ddd solid 1rpx ;
+  border-top: #ddd solid 1rpx ;
+}
+
+.last{
+  border-bottom:0;
+}
+.payment-method{
+  margin-top: 20px;
+  background-color: #fff;
+  width: 100%;
+}
+.payment-method .method{
+  display: block;
+}
+.pay_weixin{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.payment-method .pay{
+  font-size: 28rpx;
+  padding: 30rpx 0;
+  padding-left: 20rpx;
+}
+.weixin_icon{
+  width: 45rpx;
+  height: 45rpx;
+  margin-left: 31rpx;
+}
+.confirm{
+  background-color: #f68d2e;
+  font-size: 32rpx;
+  width: 690rpx;
+  color: #fff;
+  position: absolute;
+  bottom: 30rpx;
+}

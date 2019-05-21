@@ -1,0 +1,18 @@
+<!--pages/invoiceOrderDetails/index.wxml-->
+<view class='container'>
+<block wx:for="{{invoiceList}}" wx:item="item" wx:key="index">
+  <view class="invice" bindtap="bindDetail">
+    <view class="detail">
+      <text>{{'个人'}}</text>
+      <time>{{item.time}}</time>
+    </view>
+    <view>
+      <text class="site colorsite">{{item.start}}</text>
+    </view>
+    <view>
+      <text class="site">{{item.end}}</text>
+    </view>
+    <menty class="menty">{{item.price}}<text>元</text></menty>
+  </view>
+</block>
+</view>

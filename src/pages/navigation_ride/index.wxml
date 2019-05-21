@@ -1,0 +1,53 @@
+<!--pages/getRoute/index.wxml-->
+
+<view class="map_box">
+  <map id="navi_map" 
+    subkey="{{subkey}}"
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}" 
+    markers="{{markers}}"
+    include-points="{{includePoints}}" 
+    polyline="{{polyline}}"
+    show-location="{{true}}">
+  </map>
+</view>
+
+<call class="resetView"></call>
+<!-- <cover-view class="resetView"></cover-view> -->
+<cover-view class="resetView" style="right:20rpx;">
+  <cover-image bindtap='moveToLocation' class="reset" src="../../image/ico-reset.png"></cover-image>
+</cover-view>
+
+<view class="text_box">
+  <!-- <cover-view class="cost">{{distance}}10元</cover-view> -->
+  <view class="cost">
+    <view class="cost-name"><image src="/image/ico-cost.png"></image><text>价格</text></view>
+    <view class="cost-count"><text>{{sCOST}}元</text> <text class="cost-text">({{array[index]}}人价格)</text></view>
+  </view>
+  <view class="starPoint">
+    <view class="point-title"><image src="/image/ico-shop.png"></image><text>站点</text></view>
+    <view class="point-dress">
+      <view class="starLocation">{{markers[0].isName}}</view>
+      <!-- <view class="text">请在12:44分前到达站点，否则订单将被取消</view> -->
+    </view>
+  </view>
+  <view class="personNum">
+    <view class="person-title">
+      <image src="/image/ico-person.png"></image><text>人数</text>
+    </view>
+    <view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}} 人乘车<image src="/image/ico-down.png"></image>
+        </view>
+      </picker>
+      <view class="msg">
+        请严格按照所选人数上车
+      </view>
+    </view>
+    
+  </view>
+  <!-- <view class="msgLine"></view> -->
+  <!-- <cover-view class="detail_button" bindtouchstart="goDetail">详情</cover-view> -->
+  <button class="submit_button" bindtap='btnSubmit'>确认下单</button>
+</view>

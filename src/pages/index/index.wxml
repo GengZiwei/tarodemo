@@ -1,0 +1,77 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="map_container" style="top:{{height*2 + 28}}px">
+    <!--定义页面结构，可以使用地图组件也能使用其他组件 -->
+    <map
+      id="myMap"
+      subkey="{{subkey}}"
+      style="width: 100%; height: 100%;"
+      bindregionchange="regionchange"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      bindmarkertap="getMarker"
+      bindupdated="bindupdated"
+      show-location
+    >
+    <cover-image wx:if="{{latitude}}" class="iconStart" src="../../image/ico-start.png"></cover-image>
+    <cover-view wx:if="{{starword.isName}}" class="iconbubble" style="width: {{iconbuuble.length + 'em'}}">{{iconbuuble}}</cover-view>
+    <cover-view wx:if="{{starword.isName}}" class="iconsan">
+      <cover-image src="../../image/iconsan.png" class="icon"></cover-image>
+    </cover-view>
+    </map>
+  <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+  </view>
+  <cover-view class="site">
+    <cover-image class="img" src="../../image/radius.png"></cover-image>
+    <cover-view class="text">上下车站点</cover-view>
+  </cover-view>
+  <cover-image bindtap='moveToLocation' class="reset" src="../../image/ico-reset.png"></cover-image>
+  <view class="address">
+    <view class="address-input">
+      <view class="loc start-Location" bindtouchstart='bindStartInput'>
+        <text wx:if="{{!starword.isName}}">上车</text>{{starword.isName}}
+      </view>
+    </view>
+    <view class="recommend-text">
+      <text wx:if="{{markers[0]}}">已为您推荐最佳上车点</text>
+    </view>
+    <view class="address-input">
+      <view class="loc end-Location" bindtouchstart='bindEndInput'>
+        <text>下车</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 订单状态弹窗指引 -->
+<cover-view wx:if="{{showDialog}}" class="dialog-order">
+  <cover-view class="dialog-main">
+    <cover-view style="border-radius: 20rpx;">
+      <cover-view>
+        <cover-image src="/image/pic-order.png"></cover-image>
+      </cover-view>
+      <!-- 待支付状态 -->
+      <cover-view wx:if="{{orderPay}}" class="dialog-status">
+        <cover-view class="dialog-content">您有一笔订单未完成支付</cover-view>
+        <cover-view bindtap='toCheck' class="dialog-btn">
+          前往支付
+        </cover-view>
+      </cover-view>
+      <!-- 进行中订单 -->
+      <cover-view wx:else class="dialog-status">
+        <cover-view class="dialog-content">您有一笔订单正在进行中</cover-view>
+        <cover-view bindtap="toCheck" class="dialog-btn">
+          前往查看
+        </cover-view>
+      </cover-view>
+    </cover-view>
+    <cover-view bindtap="closeDialog" class="btn-close">
+      <cover-image class="ico-close" src="/image/ico-close.png"></cover-image>
+    </cover-view>
+  </cover-view>  
+</cover-view>
+<cover-view class="coupon" wx:if="{{pupuns}}">
+  <cover-image class="closecoupon" bindtap="closecoupon"  src="/image/ico-close.png"></cover-image>
+  <cover-image class="pupuns" src="/image/pupuns.png" bindtap="toLogin"></cover-image>
+</cover-view>

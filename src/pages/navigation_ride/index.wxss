@@ -1,0 +1,173 @@
+.flex-style{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position:fixed;
+  width:100%;
+  height:80rpx;
+  line-height: 80rpx;
+  font-size:32rpx;
+  background-color:#FFF;
+}
+.flex-item{
+  height: 35px; 
+  line-height: 35px;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1
+}
+.flex-item.active{
+  color:#0091ff;
+}
+.map_box{
+  position: absolute;
+  top: 0;
+  bottom: 470rpx;
+  left: 0px;
+  right: 0px;
+}
+#navi_map{
+  width: 100%;
+  height: 100%;
+}
+.text_box{
+  /* position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#fff;
+  border-radius: 10rpx; */
+
+  position: fixed;
+  box-sizing: border-box;
+  bottom:0;
+  left:0;
+  right:0;
+  /* padding:40rpx 30rpx 20rpx; */
+  background-color:#FFF;
+  z-index:1;
+  height: 470rpx;
+}
+/* 修改 2018-12-27 */
+.text_box .cost{
+  height: 110rpx;
+  margin:0 30rpx;
+  color:#f39541;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:solid 1px #eee;
+}
+/* 新增 2018-12-27 */
+.cost-name,.point-title,.person-title{
+  width: 20%;
+  color:#333;
+  font-size:30rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.cost-name image{
+  width:30rpx;
+  height:30rpx;
+  margin-right:20rpx;
+}
+.point-title image{
+  width:30rpx;
+  height:39rpx;
+  margin-right:20rpx;
+}
+.person-title image{
+  width:30rpx;
+  height:41rpx;
+  margin-right:20rpx;
+}
+
+.cost-count{
+  font-size:36rpx;
+}
+.cost-text{
+  font-size:24rpx;
+  margin-left:20rpx;
+}
+.submit_button{
+  color: #fff;
+  height:90rpx;
+  line-height: 90rpx;
+  font-size:32rpx;
+  background: #003478;
+  margin:30rpx 20rpx 20rpx;
+  /* width:50px; */
+  text-align:center;
+  border-radius:5px;
+}
+/* 修改 */
+.starPoint,.personNum{
+  height:110rpx;
+  margin:0 30rpx;
+  border-bottom:solid 1px #eee;
+  font-size:32rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.point-dress{
+  width: 80%;
+  font-size:24rpx;
+  white-space: pre;
+  text-overflow: ellipsis;
+  font-size:34rpx;
+  text-align: right;
+  margin-bottom:15rpx;
+  overflow: hidden;
+}
+.personNum{
+  background-color:#fff;
+}
+.starLocation{
+  vertical-align:middle;
+  color:#5db9a5;
+}
+.picker{
+  text-align: right;
+  margin-bottom:15rpx;
+}
+.picker image{
+  width:30rpx;
+  height:18rpx;
+  margin-left:10rpx;
+}
+.msg{
+  font-size:24rpx;
+  text-align: right;
+  color:#f39541;
+}
+.msgLine{
+  background-color:#eee;
+  height:2rpx;
+}
+.contors{
+  display: flex;
+  /* overflow: visible; */
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.resetView{ 
+  position: fixed;
+  display: inline-block;
+  bottom: 482rpx;
+  /* overflow: visible; */
+}
+.resetView .reset{
+  position:static;
+}
+/* .coverBox{
+  position:fixed;
+  bottom:482rpx;
+  z-index: 3;
+  background-color:transparent;
+  left: 0rpx;
+  right:0rpx;
+  overflow: visible;
+} */

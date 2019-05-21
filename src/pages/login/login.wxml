@@ -1,0 +1,25 @@
+<!-- 登陆/注册 -->
+<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+<scroll-view>
+  <view class="loginTitlle">登录/注册</view>
+  <view class='loginForm'>
+    <form>
+      <view class="loginText">
+        <input placeholder-class='placeText' maxlength="{{11}}" focus="{{true}}"
+          bindinput="getNumber" placeholder='请输入您的手机号' type="number"
+        ></input>
+      </view>
+      <view class="loginText">
+        <input placeholder-class='placeText' value='{{code}}' placeholder='请输入验证码' type="number"
+          maxlength="{{4}}" bindinput="getCodeNumber"
+        ></input>
+        <text wx:if="{{codeSend}}" bindtap='sendCode'>发送验证码</text>
+        <view wx:else class="reSend">{{sendTime}}秒后重新发送</view>
+      </view> 
+      <view bindtap='submit' lang="zh_CN" class="btn-submit">
+        <open-data id="name" type="userNickName" lang="zh_CN" class="userNickName">123</open-data>
+      </view>
+      <view class="subText">点击登录即表示您已阅读并同意<text>用户协议</text></view>
+    </form>
+  </view>
+</scroll-view>

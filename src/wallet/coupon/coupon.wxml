@@ -1,0 +1,31 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="nocoupon" wx:if="{{payCoupon && couponList.length != 0}}" bindtap="noCoupon">不使用优惠券</view>
+<view class='container'>
+  <view wx:for="{{couponList}}" wx:item="item" wx:key="index" class="coupon">
+    <view class="detail" data-id="{{item.id}}" data-money="{{item.money}}" bindtap="bindDetail">
+      <view class="left">
+        <view style="font-size:36rpx;color:#eb6622;">
+          ￥<text class="many">{{item.money}}</text>
+        </view>
+        <view style="margin-top:15rpx">（下单立减）</view>
+      </view>
+      <view class="right">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="time">
+      <text>有效期：{{item.couponTime}}</text>
+      <text class="use {{item.display && 'useNone'}}" data-id="{{index}}" bindtap="tabDetail">使用详情</text>
+    </view>
+    <view class="teare" style="display: {{item.display ? 'black' : 'none'}}">
+      <text>
+        1、每张优惠券仅可使用一次，每次限用一张，且不可与其他优惠同时使用。
+        2、每张优惠券均标注有效期，请在有效期内使用，过期将失效。
+      </text>
+    </view>
+  </view>
+
+  <view class='content' wx:if="{{couponList.length == 0}}">
+    <image src='../../image/nocoupon.png' class='ordericon'></image>
+  </view>
+</view>

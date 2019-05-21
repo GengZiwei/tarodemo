@@ -1,0 +1,75 @@
+/* pages/login/login.wxss */
+page{
+  background-color:#FFF;
+}
+.loginTitlle{
+  font-size:40rpx;
+  font-weight: 700;
+  margin:0 30rpx;
+}
+.loginForm{
+  padding:25rpx;
+}
+.loginText{
+  padding-top:30rpx;
+  margin:0 15rpx;
+  display: flex;
+  border-bottom:solid 1px #eee;
+  font-size:28rpx;
+}
+.loginText input{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  flex:auto;
+}
+.loginText text{
+  color:#2696d9;
+  font-size:28rpx;
+}
+.loginText .reSend{
+  color:#333;
+}
+.subText{
+  font-size:24rpx;
+}
+.btn-submit{
+  text-align: center;
+  height:86rpx;
+  position: relative;
+  line-height: 86rpx;
+  font-size:32rpx;
+  margin-top:95rpx;
+  background-color:#003478;
+  color:#FFF;
+}
+.btn-submit::after {
+  content: '登录';
+  font-size:32rpx;
+  text-align: center;
+  display: block;
+  line-height: 86rpx;
+  border: none;
+}
+.subText{
+  font-size:28rpx;
+  margin-top:20rpx;
+  color:#858585;
+}
+.subText text{
+  color:#2696d9;
+}
+.placeText{
+  font-size: 30rpx;
+  font-weight: 400;
+  color:#ddd;
+}
+
+.userNickName{
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}

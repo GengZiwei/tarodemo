@@ -1,0 +1,133 @@
+/* wallet/appInvoice/appInvoice.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.content{
+  width: 100%;
+  height: 100%;
+}
+.ordericon{
+  width: 320rpx;
+  height: 240rpx;
+  margin: 0 auto;
+  margin-bottom: 47rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.listStork{
+  padding-bottom: 220rpx;
+}
+
+.invoice{
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.money{
+  height: 80rpx;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #ddd;
+  position: relative;
+}
+.money .font{
+  color: #d0021b;
+}
+.money .img {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  right: 30rpx;
+  margin-top: -18rpx;
+}
+
+.stroke{
+  height: 220rpx;
+  color: #666;
+  white-space:pre;
+  overflow: hidden;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  padding-top: 20rpx;
+}
+
+.site{
+  margin-top: 24rpx;
+  margin-left: 54rpx;
+  position: relative;
+}
+.site::before{
+  content:'';
+  display:block;
+  width: 20rpx;
+  height: 20rpx;
+  position:absolute;
+  border-radius: 100%;
+  top:50%;
+  left: -54rpx;
+  border: 7rpx solid #003478;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.border{
+  height: 30rpx;
+  margin: 12rpx 15rpx;
+  border-left:1rpx solid #ddd; 
+}
+
+.select{
+  width: 100%;
+  height: 200rpx;
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  background: #fff;
+}
+
+.select .tripMoney{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.select .font{
+  color: #e96622;
+}
+
+.select .determine{
+  height: 80rpx;
+  margin: 30rpx;
+  line-height: 80rpx;
+}
+
+.select .seleimg{
+  font-size: 24rpx;
+  color: #333;
+  float: left;
+}
+
+.select .img{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle
+}
+.select .tab{
+  width: 200rpx;
+  height: 100%;
+  float: right;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background: #003478;
+  overflow: hidden;
+}

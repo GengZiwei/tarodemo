@@ -1,0 +1,35 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view class='container'>
+  <block wx:if="{{order == '1'}}" wx:for="{{orderlist}}" wx:item="item" wx:key="key">
+    <view
+      data-id="{{item.id}}"
+      data-key="{{index}}"
+      data-item="{{item}}"
+      data-type="{{item.statusType}}"
+      data-time="{{item.orderTime}}"
+      class="address" bindtap='_showorderinfo'>
+        <view class="address-time">
+          <text>{{item.date}}</text>
+          <!-- <text wx:if="{{item.state == '1'}}" class='{{item.stateclass}}'>进行中</text>
+          <text wx:elif="{{item.state == '2'}}" class='{{item.stateclass}}'>已完成</text> -->
+          <text class='{{item.stateclass}}'>{{item.state}}</text>
+        </view>
+        <view class="address-input address-input-child">
+          {{item.start_point}}
+        </view>
+        <view class="recommend-text">
+        </view>
+        <view class="address-input ">
+          {{item.end_point}}
+        </view>
+        <view class="address-count">
+          <text>人数：{{item.num}}位 </text>
+          <text>{{item.sing_status}}</text>
+        </view>
+      </view>
+  </block>
+  <view class='content' wx:if="{{order == '0'}}">
+    <image src='../../image/ordericon.png' class='ordericon'></image>
+    <text>暂无订单记录</text>
+  </view>
+</view>

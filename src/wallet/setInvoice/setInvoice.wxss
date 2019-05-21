@@ -1,0 +1,95 @@
+/* wallet/setInvoice/setInvoice.wxss */
+.header text{
+  height: 80rpx;
+  padding: 0 10rpx;
+  font-size: 26rpx;
+  color: #a9a9a9;
+  line-height: 80rpx;
+  display: inline-block;
+}
+/* .header text:last-child{
+  margin-left: 60rpx;
+} */
+.header .headerTap{
+  color: #333;
+  border-bottom: 6rpx solid #003478;
+}
+
+.swiper-view{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 26rpx;
+  color: #666666;
+  position: relative;
+}
+.swiper-view:last-child{
+  border-bottom: none;
+  margin-bottom: 100rpx;
+}
+.right-input{
+  position: absolute;
+  width: calc(100% - 260rpx);
+  height: 100rpx;
+  top: 0;
+  left: 0;
+  padding-left: 240rpx;
+  white-space:pre;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.right-input input{
+  height: 100%;
+}
+.swiper-view .left-text {
+  display: inline-block;
+  width: 240rpx;
+  white-space:pre;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.input-placeholder{
+  color: #ccc;
+  font-size: 26rpx;
+  line-height: 100rpx;
+}
+
+.right-img image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.arrow::after{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 15rpx;
+  height: 15rpx;
+  position:absolute;
+  top:50%;
+  right: 30rpx;
+  transform: translateY(-50%) rotate(45deg);
+  border-right:#ddd solid 1rpx ;
+  border-top: #ddd solid 1rpx ;
+}
+
+.button{
+  height: 88rpx;
+  font-size: 32rpx;
+  width: 100%;
+  padding: 0 20rpx;
+  color: #fff;
+  background-color:#ddd;
+  line-height: 88rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 20rpx;
+  background-color: #003478;
+}
+
+.purchaser{
+  color: #ccc;
+}

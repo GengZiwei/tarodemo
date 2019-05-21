@@ -1,0 +1,47 @@
+/* pages/more/more.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.more{
+  margin: 20rpx 0;
+  width: 100%;
+  background-color: #fff;
+}
+.contact-us{
+    border-bottom: 1px solid #e5e5e5;
+}
+.contact-us,
+.about-us{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 0;
+  margin: 0 30rpx;
+  font-size: 32rpx;
+  position: relative;
+}
+.contact-us::after,
+.about-us::after{
+   content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 20rpx;
+  height: 20rpx;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform: translateY(-50%) rotate(45deg);
+  background-color:#FFF;
+  border-color: #929292;
+  border-right:solid 1rpx ;
+  border-top:solid 1rpx ;
+}
+.sign-out{
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  color: #003478;
+}

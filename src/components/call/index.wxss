@@ -1,0 +1,26 @@
+.call-view{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* left:20rpx; */
+  width:170rpx;
+  margin-left:20rpx;
+  z-index: 1;
+}
+.takeCall{
+  bottom:0;
+  width:170rpx;
+  height:84rpx;
+}
+.icoCall{
+  /* position: absolute; */
+  width:84rpx;
+  height:84rpx;
+}
+.cfcall1 {
+  top: 0
+}
+.cfcall2 {
+  bottom: 90rpx
+}

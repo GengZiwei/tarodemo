@@ -1,0 +1,30 @@
+<!--service/evaluation/index.wxml-->
+<view class="evaluat-header">您对司机本次服务是否满意？</view>
+<view class="evaluat-img">
+  <view class="img-view">
+    <image src="{{ imgStatue ? '/image/toevalu.png'  :'/image/evaluation.png'}}" data-value="{{true}}" bindtap="clickImg" />
+    <text>满意</text>
+  </view>
+  <view class="img-view">
+    <image src="{{imgStatue ?  '/image/noevaluation.png' : '/image/tonoevalu.png'}}" data-value="{{false}}" bindtap="clickImg" />
+    <text>不满意</text>
+  </view>
+</view>
+<view class="evaluat-select">
+  <block wx:for="{{selectList}}" wx:key="index">
+    <text bindtap="clickSelect" data-key="{{index}}" class="evaluat-span {{item.click ? 'click-span' : ''}}">{{item.itemText}}</text>
+  </block>
+  <textarea
+      value="{{tareaValue}}"
+      show-confirm-bar="{{false}}"
+      bindinput='inputtext'
+      class="cancel-textarea"
+      placeholder="请描述具体问题"
+      placeholder-class="cancel-textarea-placeholder">
+    </textarea>
+</view>
+<view class="cancel-foot">
+  <button class="btn" type="primary" loading="{{disabled}}" disabled="{{disabled}}" bindtap="onTap">
+    提交
+  </button>
+</view>

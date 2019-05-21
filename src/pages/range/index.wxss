@@ -1,0 +1,28 @@
+/* pages/range/index.wxss */
+page{
+  height:100%;
+}
+.main{
+  position:relative;
+  height:100%;
+}
+.rangeText{
+  height:120rpx;
+  padding:40rpx;
+  line-height:150%;
+  font-size:38rpx;
+  color:#333;
+  border-top:solid 1px #eee;
+}
+.mapPic{
+  position:absolute;
+  top:200rpx;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+}
+.mapPic image{
+  width:100%;
+  height:100%;
+}

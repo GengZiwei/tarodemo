@@ -1,0 +1,37 @@
+<!--pages/order_progress/index.wxml-->
+<view class="map_box">
+  <map id="navi_map"
+    subkey="{{subkey}}"
+    show-location
+    markers="{{markers}}"
+    polyline="{{polyline}}">
+  </map>
+  <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+
+ <!--  <cover-view class="imgwrap">
+    </cover-view> -->
+  <call class="imgwrap"></call>
+  <cover-view class="imgwrap" style="right:20rpx;">
+    <cover-image bindtap='moveToLocation' class="pro_reset" src="../../image/ico-reset.png"></cover-image>
+  </cover-view>
+
+  <cover-view class='content'>
+    <cover-view class='infowrap'>
+      <cover-view class='info-top info'>
+        <cover-view class='license'>{{license}}</cover-view>
+        <cover-image src='../../image/ordericon_car.jpg' class='ordericon_car'></cover-image>
+        <cover-view>{{car_color}} {{type}}</cover-view>
+      </cover-view>
+      <cover-view class="dialog-longline"></cover-view>
+      <cover-view class='info-bottom info'>
+        <cover-view class='date'>
+          出发时间：{{date}}
+        </cover-view>
+        <cover-view class='people-num'> 
+        上车人数:{{num}}位
+        </cover-view>
+      </cover-view>
+      <cover-view class="dialog-longline"></cover-view>
+    </cover-view>
+  </cover-view>
+</view>

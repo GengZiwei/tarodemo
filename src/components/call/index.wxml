@@ -1,0 +1,19 @@
+<cover-view>
+  <!-- 客服电话 -->
+  <cover-view data-tel="service" class="icoCall cfcall1" style="opacity: {{isCall ? '1' : '0'}};" bindtap='callTel'>
+    <cover-image src="/image/cf_call_01.png"></cover-image>
+  </cover-view>
+  <!-- 报警电话 -->
+  <cover-view data-tel="police" class="icoCall cfcall2" style="opacity: {{isCall ? '1' : '0'}};" bindtap='callTel'>
+    <cover-image src="/image/cf_call_02.png"></cover-image>
+  </cover-view>
+  <cover-view class="takeCall" bindtap='takeCall' style="bottom: 0">
+    <cover-image src="/image/carful.png"></cover-image>
+  </cover-view>
+</cover-view>
+
+<!-- <cover-view style="opacity: {{isCall ? '0' : '1'}};display: {{isCall ? 'none' : 'black'}}">
+  <cover-view class="takeCall" bindtap='takeCall' style="bottom: 0">
+    <cover-image src="/image/carful.png"></cover-image>
+  </cover-view>
+</cover-view> -->

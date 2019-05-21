@@ -1,0 +1,14 @@
+<!--wallet/purchaser/purchaser.wxml-->
+<view wx:for="{{list}}" wx:key="{{index + item.value}}" class="swiper-view">
+  <text class="left-text">{{item.text}}</text>
+  <view class="right-input">
+    <input
+      value="{{purchaser[item.value]}}"
+      data-data="{{item.value}}"
+      bindblur="valueBrue"
+      placeholder="{{item.placeholder}}"
+      placeholder-style
+      placeholder-class="input-placeholder"/>
+  </view>
+</view>
+<view class="button" bindtap="submit">确定</view>

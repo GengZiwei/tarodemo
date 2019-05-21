@@ -1,0 +1,2 @@
+/* pages/invoice/invoice.wxss */
+@import "/wallet/wallet/wallet.wxss";

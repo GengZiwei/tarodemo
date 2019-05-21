@@ -1,0 +1,66 @@
+/* pages/invoiceOrderDetails/index.wxss */
+page{
+  background-color: #f7f7f7;
+  padding-top: 20rpx;
+}
+.invice{
+  background-color: #fff;
+  font-size: 26rpx;
+  padding:30rpx 30rpx 0;
+  width: 650rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  position: relative;
+}
+
+.detail{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.detail time{
+  font-size: 24rpx;
+  color: #999;
+}
+
+.site{
+  position: relative;
+  display: block;
+  width: 50%;
+  color: #666;
+  margin-top: 24rpx;
+  padding-left: 50rpx;
+  white-space:pre;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.site::before{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  font-size:0;
+  border-radius: 100%;
+  width:30rpx;
+  height:30rpx;
+  position:absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color:#FFF;
+  border:solid 7rpx #333;
+}
+.colorsite::before{
+  border:solid 7rpx #003478;
+}
+
+.menty{
+  position: absolute;
+  right: 30rpx;
+  bottom: 40rpx;
+  color: #333;
+  font-size: 48rpx;
+}
+.menty text{
+  color: #666;
+  font-size: 26rpx;
+}

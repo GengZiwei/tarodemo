@@ -1,0 +1,33 @@
+/* pages/wallet/wallet.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.function{
+  margin-top: 30rpx;
+  padding: 0 40rpx;
+  background-color: #fff;
+}
+.Order_center{
+  border-bottom: 1px solid #ccc;
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  position: relative;
+}
+.Order_center::after{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 20rpx;
+  height: 20rpx;
+  position:absolute;
+  top:50%;
+  right:0;
+  transform: translateY(-50%) rotate(45deg);
+  background-color:#FFF;
+  border-color: #929292;
+  border-right:solid 1rpx ;
+  border-top:solid 1rpx ;
+}
+.Order_center:last-child{
+  border: none;
+}

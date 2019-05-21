@@ -1,0 +1,183 @@
+/* pages/response/index.wxss */
+.map_container{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.resetView{
+  position: fixed;
+  display: inline-block;
+}
+.resetView .reset{
+  position:static;
+}
+.waitMap{
+  /* position:fixed; */
+  margin:20rpx;
+  bottom:20rpx;
+  clear: both;
+  font-size:24rpx;
+  background-color:#fff;
+  left:20rpx;
+  right:20rpx;
+  text-align:center;
+  border-radius:10rpx;
+  box-shadow: 0px 0px 10px #999;
+  -webkit-box-shadow: 0px 0px 10px #999;
+  -moz-box-shadow: 0px 0px 10px #999;
+}
+.waitCar{
+  bottom:0;
+  margin:20rpx 0 0;
+  border-radius: 0;
+}
+.waitText{
+  height:90rpx;
+  line-height:90rpx;
+}
+.waitTime{
+  height:158rpx;
+  position:relative;
+}
+.waitTime .title {
+  color:#999;
+  padding:20rpx 0;
+}
+.waitTime .time{
+  font-size:58rpx;
+  height:64rpx;
+  color: #ef9141;
+  /* line-height: 60rpx; */
+}
+.orangeTime{
+  color: #aaa;
+}
+.line{
+  height:2rpx;
+  background-color:#e5e5e5;
+}
+.cancalOrder{
+  height:88rpx;
+  line-height: 88rpx;
+}
+.loadingCar{
+  padding:30rpx 25rpx;
+  text-align: left;
+}
+.coverBox{
+  position:fixed;
+  bottom:0rpx;
+  z-index: 3;
+  background-color:transparent;
+  left: 0rpx;
+  right:0rpx;
+}
+.contors{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.goCarArrive {
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #5a5a5a;
+}
+/* 车辆已接单，等待上车 */
+.carInfo{
+  padding:0 74rpx 0 214rpx;
+  margin: 40rpx;
+  height: 130rpx;
+  position: relative;
+  margin-bottom: 0;
+  /* display: flex;
+  justify-content:space-between;
+  align-items:center; */
+}
+.carPic, .carTel{
+  position: absolute;
+}
+.carPic{
+  width:183rpx;
+  height:123rpx;
+  top: 28rpx;
+  left: 0;
+}
+.carTel {
+  width: 74rpx;
+  height: 74rpx;
+  top: 28rpx;
+  right: 0;
+}
+.middle {
+  width: 100%;
+  text-align: start;
+}
+.carPaid{
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  margin: 14rpx 0;
+  font-size: 26rpx;
+  text-align: center;
+  color: #ffff;
+  background-color:#818086;
+  border-radius: 8rpx;
+}
+.timeTo{
+  padding:30rpx 25rpx;
+}
+.carTime{
+  color:#ef9141;
+  display: inline-block;
+}
+.view-gg{
+  display: flex;
+  align-items:center;
+  padding:20rpx 30rpx;
+  border-radius: 10rpx;
+}
+.ico-xlb,.ico-image{
+  width:69rpx;
+  height:69rpx;
+  overflow:initial;
+}
+.gg-content{
+  flex:auto;
+  white-space: normal;
+  text-align: left;
+  margin-left:30rpx;
+  line-height: 130%;
+}
+.c-text{
+  display: inline-block;
+}
+.showWaitTimes{
+  overflow: hidden;
+  text-align: center;
+  background-color:#FFF;
+  position:fixed;
+  top:68px;
+  left: 0;
+  right:0;
+  font-size:24rpx;
+}
+.timeGroup{
+  display: flex;
+}
+.waitTime{
+  flex:1;
+  position:relative;
+}
+.waitTime:first-child::after{
+  content: '';
+  position:absolute;
+  background:#f2f2f2;
+  right:0;
+  top:30rpx;
+  bottom:20rpx;
+  width:2rpx;
+}

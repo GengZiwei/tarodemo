@@ -1,0 +1,39 @@
+<!--wallet/appInvoice/appInvoice.wxml-->
+<view class='content' wx:if="{{invoice == '0'}}">
+  <image src='../../image/nostroke.png' class='ordericon'></image>
+</view>
+<block wx:else>
+  <scroll-view scroll-top='{{300}}' scroll-y class="listStork">
+    <view wx:for="{{tableList}}" wx:key="index" class="invoice" bindtap="tabStroke" data-index="{{index}}">
+      <view class="money">
+        开票金额 <text class="font"> {{'￥' + item.price}}</text>
+        <image wx:if="{{item.tab || seleDetermine}}" class="img" src="/image/reude.png" alt="" srcset="" />
+        <image wx:else class="img" src="/image/noreude.png" alt="" srcset="" />
+      </view>
+      <view class="stroke">
+        <text>{{item.time}}</text>
+        <view class="site colorsite">{{item.startStation}}</view>
+        <view class="border"></view>
+        <view class="site">{{item.endStation}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="select" >
+    <view class="tripMoney"> 共<text class="font">{{number}}</text>个行程，共计<text class="font">{{money}}</text>元 </view>
+    <view class="determine">
+      <view>
+        <!-- <view class="seleimg" data-det="{{false}}" bindtap="seleTab">
+          <image wx:if="{{seleDetermine}}" class="img" src="/image/noreude.png" alt="" srcset="" />
+          <image wx:else class="img" src="/image/reude.png" alt="" srcset="" />
+          选择本页
+        </view> -->
+        <view class="seleimg" bindtap="seleTab">
+          <image wx:if="{{!seleDetermine}}" class="img" src="/image/noreude.png" alt="" srcset="" />
+          <image wx:else class="img" src="/image/reude.png" alt="" srcset="" />
+          选择全部
+        </view>
+      </view>
+      <view class="tab" bindtap="tabSub">确定</view>
+    </view>
+  </view>
+</block>

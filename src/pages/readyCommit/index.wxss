@@ -1,0 +1,107 @@
+/**index.wxss**/
+@import "../index/index.wxss";
+.map_container{
+  bottom: 356rpx;
+}
+.address{
+  position: fixed;
+  padding:40rpx 30rpx 20rpx;
+  height:366rpx;
+}
+.address-input{
+  display:flex;
+}
+.address-input input{
+  font-size:36rpx;
+  flex:auto;
+}
+.address-input .remarks{
+  font-size:28rpx;
+  padding:8rpx 0;
+}
+.endPoint::before{
+  border:solid 7rpx #484848;
+}
+.address-input .remarks view{
+  color:#5db9a5;
+  display: inline-block;
+}
+.endPoint .remarks view{
+  color:#f39541;
+}
+.recommend-endtext{
+  color:#f39541;
+}
+.address-input:first-child::before{
+  border:solid 7rpx #5db9a5;
+}
+.site{
+  position:absolute;
+  width:198rpx;
+  height:100rpx;
+  bottom:270rpx;
+  left:20rpx;
+}
+.resetView{
+  position: fixed;
+  display: inline-block;
+  bottom: 378rpx;
+  /* overflow: visible; */
+}
+.resetView .reset{
+  position:static;
+}
+
+.btn-submit{
+  height:90rpx;
+  line-height: 88rpx;
+  color:#FFF;
+  font-size:32rpx;
+  background-color:#003478;
+  margin-top:38rpx;
+}
+.btn-submit::after{
+  border: none;
+}
+.end-Location{
+  font-size:36rpx;
+  margin-right:30rpx;
+  white-space:pre;
+  overflow:hidden;
+  text-overflow:ellipsis;
+
+}
+/* .coverBox{
+  position:fixed;
+  bottom:532rpx;
+  z-index: 3;
+  background-color:transparent;
+  left: 0rpx;
+  right:0rpx;
+  overflow: visible;
+} */
+.start-Location{
+  margin-right: 30rpx;
+  font-size: 36rpx;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.start-Location text,.end-Location text {
+  color:#999;
+}
+.address-input .image{
+  width: 40px;
+  height: 100%;
+  top: 0;
+  right: 10rpx;
+  position: absolute;
+}
+.image image {
+  width:30rpx;
+  height:18rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 14rpx;
+}
+

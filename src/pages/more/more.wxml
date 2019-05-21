@@ -1,0 +1,18 @@
+<!--pages/more/more.wxml-->
+<!-- <nav-bar navbar-data='{{nvabarData}}'></nav-bar> -->
+<view class='container'>
+    <view class='more'>
+      <view class='contact-us'>
+        <text>联系我们</text>
+      </view>
+      <view class='contact-us'>
+        <text>关于我们</text>
+      </view>
+      <view class='about-us' bindtap="openSetting">
+        <text>设置权限</text>
+      </view>
+    </view>
+    <view class='sign-out' bindtap="signOut">
+    退出登录
+    </view>
+</view>

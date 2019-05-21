@@ -1,0 +1,78 @@
+<!--index.wxml-->
+
+<view class="container">
+  <view class="map_container">
+    <!--定义页面结构，可以使用地图组件也能使用其他组件 -->
+    <map
+      id="myMap"
+      subkey="{{subkey}}"
+      style="width: 100%; height: 100%;"
+      markers="{{markers}}"
+      polyline="{{polyline}}"
+      bindmarkertap="getMarker"
+      show-location
+    ></map>
+    <nav-bar navbar-data='{{nvabarData}}'></nav-bar>
+  </view>
+  <!-- 计时 -->
+  <cover-view class="showWaitTimes" style="top: {{height}}px">
+    <cover-view>
+      <cover-view wx:if="{{!orderTaking}}" class="waitText">正在为您寻找车辆,请稍等...</cover-view>
+      <cover-view wx:if="{{!orderTaking}}" class="line"></cover-view>
+      <cover-view class="timeGroup">
+        <cover-view class="waitTime">
+          <cover-view class="title">{{orderTaking ? '请在倒计时结束前走到该站点': '已经等待'}}</cover-view>
+          <cover-view class="time {{carArrive ? 'orangeTime' : ''}}">{{times}}</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="goCarArrive" wx:if="{{carArrive || oneMinute}}">
+        {{goCarArriveTitle}}
+      </cover-view>
+    </cover-view>
+  </cover-view>
+  <!-- 安全按钮 -->
+  <call class="resetView" style="bottom: {{orderTaking ? 510 : 96}}rpx;left: 0"></call>
+  <!-- <cover-view ></cover-view> -->
+  <cover-view class="resetView" style="right:20rpx;bottom: {{orderTaking ? 510 : 96}}rpx">
+      <cover-image bindtap='moveToLocation' class="reset" src="../../image/ico-reset.png"></cover-image>
+  </cover-view>
+
+  <cover-view class="coverBox">
+    <!-- 等待派单 [[-->
+    <cover-view wx:if="{{!orderTaking}}" class='waitMap waitCar'>
+      <cover-view bindtap="closeOrder" class="cancalOrder">取消订单</cover-view>
+    </cover-view>
+    <!-- 等待派单 ]]-->
+
+    <cover-view wx:if="{{orderTaking}}" class="waitMap view-gg">
+      <cover-view class="ico-xlb">
+        <cover-image class="ico-image" src="/image/ico_xlb.png"></cover-image>
+      </cover-view> 
+      <cover-view class="gg-content">
+        请准时到达 {{starwordName}} 上车，若您迟到，订单将被自动取消。
+      </cover-view>
+    </cover-view>
+    <!-- 已派单，等候上车 [[-->
+    <cover-view wx:if="{{orderTaking}}" class="waitMap">
+      <cover-view class="carInfo">
+        <cover-view class="middle">
+          <cover-view>{{carDetail.driverName}}</cover-view>
+          <cover-view class="carPaid">{{carDetail.license}}</cover-view>
+          <cover-view>{{carDetail.car_color}} {{carDetail.car_type}}</cover-view>
+        </cover-view>
+        <cover-image class="carPic" src="/image/ls_car.png"></cover-image>
+        <cover-image class="carTel" bindtap="makePhone" src="/image/telNum.png"></cover-image>
+      </cover-view>
+      <cover-view class="timeTo">
+        <cover-view class="c-text">预计车辆在</cover-view>
+        <cover-view class="carTime" style="width: 2em"> {{goCar}}</cover-view>
+        <cover-view class="c-text">分钟内到达该站点</cover-view>
+      </cover-view>
+      <cover-view class="line"></cover-view>
+      <cover-view bindtap="closeOrder" class="cancalOrder">取消订单</cover-view>
+    </cover-view>
+    <!-- 已派单，等候上车 ]]-->
+  </cover-view>
+
+  
+</view>

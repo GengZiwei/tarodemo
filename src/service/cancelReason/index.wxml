@@ -1,0 +1,30 @@
+<!--service/cancelReason/index.wxml-->
+<view class="cancel-header">
+  <image src="/image/cancelSuccess.png" />
+  <view>
+    <text>订单取消成功</text>
+  </view>
+</view>
+<view class="cancel-huger">
+  <view class="conter">
+    <text class="text-reason">请告诉您取消的原因，帮助我们改善服务</text>
+    <block wx:for="{{cancelReason}}" wx:key="index">
+      <view data-key="{{index}}" class="huger-list-text huger-list-cancel {{index == listKey ? 'huger-list-sever' : ''}}" bindtap="onClickList">
+        {{item.itemText}}
+      </view>
+    </block>
+    <textarea
+      value="{{tareaValue}}"
+      show-confirm-bar="{{false}}"
+      bindinput='inputtext'
+      class="cancel-textarea"
+      placeholder="请描述具体问题"
+      placeholder-class="cancel-textarea-placeholder">
+    </textarea>
+  </view>
+</view>
+<view class="cancel-foot">
+  <button class="btn" type="primary" loading="{{disabled}}" disabled="{{disabled}}" bindtap="onTap">
+    提交
+  </button>
+</view>

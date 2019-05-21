@@ -1,0 +1,10 @@
+<!--pages/inputAddress/inputAddress.wxml-->
+<view class="section">
+  <text>杭州</text><input bindinput="bindInput" placeholder-class="phStyle" placeholder="输入家的/公司地址" auto-focus />
+</view>
+<view bindtap="bindSearch" data-district="{{item.district}}" data-location="{{item.location}}" data-keywords="{{item.name}}" class="text_box" wx:for="{{tips}}" wx:key="key">
+  <image class="searchIMg {{item.state ? 'history':'search'}}" src="{{item.img}}" />
+  <view class="tip-name">{{item.name}}</view>
+  <view class="tip-address">{{item.district}}</view>
+  <view class="tip-distance">{{item.distance}}</view>
+</view>

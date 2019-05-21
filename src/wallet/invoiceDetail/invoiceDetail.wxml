@@ -1,0 +1,48 @@
+<!--wallet/invoiceDetail/invoiceDetail.wxml-->
+<view class="header" bindtap="seach">
+  <view class="left-font">电子发票已开票</view>
+  <text>{{detail.time}}</text>
+  <text class="right-position">查看</text>
+</view>
+
+<text class="title">接受信息</text>
+<view class="list-type list-type-no-border">
+  <text class="type-left">电子邮箱</text>
+  <text class="font-space">{{detail.email}}</text>
+</view>
+
+<text class="title">发票信息</text>
+<view class="list-type">
+  <text class="type-left">发票类型</text>
+  <text class="font-space">{{detail.invoiceType}}</text>
+</view>
+<view class="list-type">
+  <text class="type-left">发票抬头</text>
+  <text class="font-space">{{detail.invoiceTitle}}</text>
+</view>
+<view class="list-type">
+  <text class="type-left">发票内容</text>
+  <text class="font-space">{{detail.invoiceContent}}</text>
+</view>
+<view class="list-type">
+  <text class="type-left">联系电话</text>
+  <text class="font-space">{{detail.phoneNumber}}</text>
+</view>
+<view class="list-type">
+  <text class="type-left">发票金额</text>
+  <text class="font-space"> <text style="color: #eb6622">{{detail.invoiceMoney}}</text>元</text>
+</view>
+<view class="list-type list-type-no-border">
+  <text class="type-left">申请时间</text>
+  <text class="font-space">{{detail.createTime}}</text>
+</view>
+
+<view class="header" bindtap="seach">
+  <view class="left-font">一张发票，含{{1}}个行程</view>
+  <text>{{detail.time}}</text>
+  <text class="right-position">查看</text>
+</view>
+
+<view class="reopen" bindtap="reopen">
+重开电子发票和行程单
+</view>

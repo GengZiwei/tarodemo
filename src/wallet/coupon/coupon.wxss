@@ -1,0 +1,102 @@
+/* pages/coupon/coupon.wxss */
+page{
+  background-color: #f7f7f7;
+}
+.container{
+  width: 100%;
+  padding: 20rpx;
+  padding-top: 0;
+}
+.content{
+  position: fixed;
+  top: 50%;
+  margin-top: -200rpx;
+}
+.ordericon{
+  width: 101rpx;
+  height: 163rpx;
+  margin-bottom: 47rpx;
+}
+.coupon{
+  width: 100%;
+  min-height: 200rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  overflow-x: hidden;
+  padding-top: 36rpx;
+}
+.detail{
+  height: 150rpx;
+  padding: 0 30rpx;
+  position: relative;
+  border-bottom: 1px dashed#ddd;
+}
+.detail .left{
+  height: 100%;
+  font-size: 21rpx;
+  color: #666;
+}
+.detail .many{
+  font-size: 60rpx;
+  color: #eb6622;
+}
+.detail .right {
+  position: absolute;
+  top:0;
+  right: 30rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+
+.time{
+  color: #999;
+  margin: 0 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 21rpx;
+  position: relative;
+}
+.time .use{
+  display: inline-block;
+  width: 6em;
+  right: 0;
+  position: absolute;
+}
+.use::after{
+  content:'';
+  display:block;
+  box-sizing: border-box;
+  width: 15rpx;
+  height: 15rpx;
+  position:absolute;
+  top:40%;
+  right:0;
+  transform: translateY(-50%) rotate(135deg);
+  border-right:#eb6622 solid 1rpx ;
+  border-top: #eb6622 solid 1rpx ;
+}
+
+.teare{
+  color: #999;
+  overflow: hidden;
+  padding: 0 30rpx;
+  font-size: 21rpx;
+  padding-top: 22rpx;
+  padding-bottom: 24rpx; 
+  border-top: 1rpx solid #ddd;
+}
+
+.nocoupon{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: left;
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.useNone::after {
+  transform: rotate(-45deg)
+}

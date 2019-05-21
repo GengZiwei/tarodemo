@@ -1,0 +1,2 @@
+<!--service/protocol/index.wxml-->
+<rich-text class="rich" nodes="{{nodes}}" space="nbsp"></rich-text>
