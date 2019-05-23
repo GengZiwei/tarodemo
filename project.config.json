@@ -2,9 +2,9 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "pinleba",
 	"description": "拼了吧为您提供拼便捷、轻量的服务。",
-	"appid": "wxc61973174bd14a17",
+	"appid": "wx9793aa11c8aa8fee",
 	"setting": {
-    "checkSiteMap": false,
+		"checkSiteMap": false,
 		"urlCheck": false,
 		"es6": false,
 		"postcss": false,

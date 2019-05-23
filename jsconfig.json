@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/image": ["./src/image"],
+      "@/api": ["./src/utils/api"],
+      "@/taroPamise": ["./src/utils/taroPamise"],
+    }
+  }
+}

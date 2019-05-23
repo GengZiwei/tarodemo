@@ -1,3 +1,7 @@
+
+// eslint-disable-next-line import/no-commonjs
+const path = require('path')
+
 const config = {
   projectName: 'pinleba',
   date: '2019-5-21',
@@ -26,11 +30,18 @@ const config = {
   },
   defineConstants: {
   },
+  alias:{
+    '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@/image': path.resolve(__dirname, '..', 'src/image'),
+    '@/api': path.resolve(__dirname, '..', 'src/utils/api'),
+    '@/taroPamise': path.resolve(__dirname, '..', 'src/utils/taroPamise'),
+  },
   copy: {
     patterns: [
-      {from: 'src/image', to: 'dist/weapp/image'},
-      {from: 'src/components', to: 'dist/weapp/components'},
-      { from: 'src/sitemap.json', to: 'dist/weapp/sitemap.json'}
+      {from: 'src/image', to: 'dist/image'},
+      {from: 'src/components', to: 'dist/components'},
+      { from: 'src/sitemap.json', to: 'dist/sitemap.json'}
     ],
     options: {
     }

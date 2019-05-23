@@ -20,10 +20,9 @@ Component({
     }
   },
   attached: function () {
-    console.log(app.globalData)
     // 定义导航栏的高度   方便对齐
     this.setData({
-      height: (app.globalData.height || 20) * 2
+      height: (app.globalData.stemInfo.height || 20) * 2
     })
   },
   methods: {
