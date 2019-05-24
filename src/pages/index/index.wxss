@@ -14,17 +14,26 @@
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
 }
-.text-bubble {
+.text-font{
   top: 50%;
   left: 50%;
   font-size: 20px;
+  position: absolute;
+  transform: translateX(-50%) translateY(calc(-190%));
+}
+.text-bubble {
   padding: 0 20px;
   height: 50px;
   text-align: center;
   line-height: 50px;
-  position: absolute;
+  z-index: 1;
   background: #fff;
   border-radius: 50px;
-  transform: translateX(-50%) translateY(calc(-190%));
   box-shadow: 0rpx 0rpx 1rpx 3rpx #d9d9d9;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 1;
 }

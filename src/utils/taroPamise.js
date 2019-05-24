@@ -54,12 +54,18 @@ class TaroPromise {
    * @param {string} type 
    * @return {Promise} 
    */
-  static getLocation(type) {
-    return new Promise((resolve, reject) => Taro.getLocation({ type: type, success: resolve, fail: reject }));
+  static async getLocation(type) {
+    let sett = await TaroPromise.getSetting()
+    let authLocat = await TaroPromise.authorize('scope.userLocation');
+    return new Promise((resolve, reject) => {
+      sett.authSetting['scope.userLocation'] || authLocat ?
+      Taro.getLocation({ type: type, success: resolve, fail: reject })
+      : reject({auth: true, error: '未授权'})
+    })
   };
 
   /**
-   * 获取当前位置
+   * 
    * @param {string} type 
    * @return {Promise} 
    */

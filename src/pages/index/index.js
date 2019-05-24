@@ -27,23 +27,22 @@ export default class Index extends Component {
       },
       latitude: '30.294427',
       longitude: '120.343369',
-      markers: [], 
-      starword: { // 当前上车站点
-        isName: '不知道'
-      },
+      markers: [], // 当前的站点
+      starword: {
+        isName: '12'
+      }, // 当前上车站点
       iconbuuble: '拖动地图更换上车点'
     }
     this.globalData = {
       subkey: app.globalData.subkey,
-      iconNumber: 0,
+      iconNumber: 0, // 进行
       starPoint: {}, // 当前上车定位
       log: '', // 移动后保存的位置
     }
   }
   componentWillMount(){ // onLaunch
     app.istoken().then(res => {
-      if(res.type == 1) {
-      }
+      if(res.type == 1) {}
     })
   }
   componentDidMount(){ // onReder
@@ -91,18 +90,7 @@ export default class Index extends Component {
   bindupdated = () =>{}
 
   moveToLocation = () => {
-    const that = this
-    TaroPromise.getLocation('gcj02').then(res => {
-      that.globalData.starPoint = res
-      that.setState({
-        latitude: res.latitude,
-        longitude: res.longitude
-      })
-      console.log('经纬度获取成功')
-      that.setPointLocation()
-    }).catch(() => {
-      console.log('error:'+ '经纬度获取失败')
-    })
+    this.getLocation()
   }
 
   render () {
@@ -124,27 +112,47 @@ export default class Index extends Component {
             show-location
           >
           </Map>
+          {starword.isName &&
+            <CoverView className='text-font'>
+              <CoverView
+                className='text-bubble'
+                style={{
+                  width: iconbuuble.length + 'em'
+                }}
+              >
+              {iconbuuble}
+              </CoverView>
+              <CoverImage src={iconSan} className='icon' />
+            </CoverView>
+          }
+          {latitude && <CoverImage className='icon-start' src={icoStart} />}
         </View>
-        {starword.isName &&
-          <CoverView
-            className='text-bubble'
-            style={{
-              width: iconbuuble.length + 'em'
-            }}
-          >
-          {iconbuuble}
-          </CoverView>
-        }
-        {latitude && <CoverImage className='icon-start' src={icoStart}>
-        <CoverImage src={iconSan} className='icon' />
-        </CoverImage>}
       </View>
     )
   }
 
-  setPointLocation(){ // 或者周围的站点
+  setPointLocation = () => { // 或者周围的站点
     let starPoint =  this.globalData.starPoint;
     let location = `${starPoint.latitude},${starPoint.latitude}`;
     console.log(location)
+  }
+
+  getLocation = () => { // 获取当前位置
+    const that = this
+    TaroPromise.getLocation('gcj02').then(res => {
+      that.globalData.starPoint = res
+      that.setState({
+        latitude: res.latitude,
+        longitude: res.longitude
+      })
+      console.log('经纬度获取成功')
+      that.setPointLocation()
+    }).catch((error) => {
+      TaroPromise.showToast({
+        title: '地理位置授权获取失败',
+        icon: 'none'
+      })
+      console.log('error:'+ '经纬度获取失败', error)
+    })
   }
 }

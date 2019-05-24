@@ -1,7 +1,10 @@
 
 // eslint-disable-next-line import/no-commonjs
-const path = require('path')
+const path = require('path');
 
+const outputRoot = 'dist/' + process.env.TARO_ENV;
+
+console.log(process.env)
 const config = {
   projectName: 'pinleba',
   date: '2019-5-21',
@@ -39,9 +42,9 @@ const config = {
   },
   copy: {
     patterns: [
-      {from: 'src/image', to: 'dist/image'},
-      {from: 'src/components', to: 'dist/components'},
-      { from: 'src/sitemap.json', to: 'dist/sitemap.json'}
+      {from: 'src/image', to: outputRoot + '/image'},
+      {from: 'src/components', to: outputRoot + '/components'},
+      { from: 'src/sitemap.json', to: outputRoot + '/sitemap.json'}
     ],
     options: {
     }
