@@ -1,9 +1,16 @@
-import wechat from "./wechat";
+/*
+ * @Author: setAnt 
+ * @Date: 2019-05-26 11:36:42 
+ * @Last Modified by: setAnt
+ * @Last Modified time: 2019-05-26 11:39:00
+ */
+
+import wechat from "./taroPamise";
 import websocketAPI from "./api";
 import Taro from '@tarojs/taro'
 
 // eslint-disable-next-line no-undef
-let app = getApp();
+let app = Taro.getApp();
 
 // 是否进行一次refToken
 let refToken = false
@@ -126,7 +133,7 @@ var webSocket = {
   },
  
   // 收到消息回调
-  onSocketMessageCallback: function(msg) {
+  onSocketMessageCallback: function() {
  
   },
  
@@ -141,7 +148,6 @@ var webSocket = {
   // 结束心跳
   stopHeartBeat: function() {
     console.log('socket结束心跳')
-    var self = this;
     heart = '';
     if (heartBeatTimeOut) {
       clearTimeout(heartBeatTimeOut);
@@ -161,14 +167,14 @@ var webSocket = {
     }
     self.sendSocketMessage({
       msg: 'ping',
-      success: function(res) {
+      success: function() {
         if (heart) { // socket心跳成功
           heartBeatTimeOut = setTimeout(() => {
             self.heartBeat();
           }, 1000 * 20);
         }
       },
-      fail: function(res) {
+      fail: function() {
         console.log('socket心跳失败');
         if (heartBeatFailCount > 2) {
           // 重连
@@ -186,7 +192,7 @@ var webSocket = {
 }
  
 // 监听WebSocket连接打开事件。callback 回调函数
-Taro.onSocketOpen(function(res) {
+Taro.onSocketOpen(function() {
   console.log('WebSocket连接已打开！', new Date((new Date().getTime())).Format('yyyy-MM-dd hh:mm:ss.S'))
   Taro.hideLoading();
   // 如果已经调用过关闭function
@@ -214,9 +220,9 @@ Taro.onSocketError(function(res) {
       return false
     }
     refToken = true
-    app.istoken().then(res => {
-      if(res.type == 1){
-        wechat.setStorage('token', res.value).then(res => {
+    app.istoken().then(token => {
+      if(token.type == 1){
+        wechat.setStorage('token', token.value).then(() => {
           webSocket.connectSocket()
         }).catch(() => {
           return new Error() 

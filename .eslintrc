@@ -4,7 +4,8 @@
     "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/no-unused-state": 0,
-    "import/first": 0
+    "import/first": 0,
+    "react/no-string-refs":0
   },
     "parser": "babel-eslint"
   }

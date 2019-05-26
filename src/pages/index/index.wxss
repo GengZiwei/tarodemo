@@ -1,11 +1,3 @@
-.map {
-  position: absolute;
-  top: 0;
-  bottom: 260px;
-  left: 0;
-  right: 0;
-  z-index: 0;
-}
 .icon-start {
   width: 50px;
   height: 80px;
@@ -14,26 +6,73 @@
   left: 50%;
   transform: translateX(-50%) translateY(-100%);
 }
-.text-font{
+.text-font {
   top: 50%;
   left: 50%;
-  font-size: 20px;
   position: absolute;
   transform: translateX(-50%) translateY(calc(-190%));
 }
 .text-bubble {
+  font-size: 20px;
   padding: 0 20px;
   height: 50px;
+  overflow: auto;
   text-align: center;
   line-height: 50px;
-  z-index: 1;
   background: #fff;
   border-radius: 50px;
   box-shadow: 0rpx 0rpx 1rpx 3rpx #d9d9d9;
 }
-.icon{
-  width: 20px;
-  height: 20px;
-  position: absolute;
+.icon {
+  width: 38px;
+  height: 14px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.address {
+  bottom: 0;
   z-index: 1;
+  width: 100%;
+  height: 260px;
+  padding: 40px 30px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #FFF;
+}
+.address-input {
+  position: relative;
+  padding-left: 56rpx;
+  height: 56rpx;
+}
+.address-input::before {
+  content: '';
+  display: block;
+  left: 0;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  transform: translateY(-50%);
+  position: absolute;
+  border-radius: 100%;
+  box-sizing: border-box;
+  background-color: #FFF;
+}
+.address-start::before {
+  border: solid 7rpx #333;
+}
+.address-end::before {
+  border: solid 7rpx #003478;
+}
+.address-placeholder {
+  color: #999;
+}
+.address-text {
+  height: 60rpx;
+  line-height: 20rpx;
+  border-left: solid 1px #d9d9d9;
+  margin-left: 12rpx;
+  font-size: 28rpx;
+  color: #5db9a5;
+  padding-left: 42rpx;
 }

@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Map, CoverImage, CoverView } from '@tarojs/components'
+import { View, CoverImage, CoverView, Text } from '@tarojs/components'
 import TaroPromise from '@/utils/taroPamise'
+import CompaniesMap from '@/components/map/index'
 
 import './index.less'
 import icoStart from '@/image/ico-start.png'
@@ -25,8 +26,8 @@ export default class Index extends Component {
         i_back: false,
         i_center: true
       },
-      latitude: '30.294427',
-      longitude: '120.343369',
+      latitude: '',
+      longitude: '',
       markers: [], // 当前的站点
       starword: {
         isName: '12'
@@ -34,7 +35,6 @@ export default class Index extends Component {
       iconbuuble: '拖动地图更换上车点'
     }
     this.globalData = {
-      subkey: app.globalData.subkey,
       iconNumber: 0, // 进行
       starPoint: {}, // 当前上车定位
       log: '', // 移动后保存的位置
@@ -46,7 +46,6 @@ export default class Index extends Component {
     })
   }
   componentDidMount(){ // onReder
-    this.mapCtxs = Taro.createMapContext('myMap');
     this.moveToLocation()
   }
   componentDidShow(){ // onshow
@@ -58,8 +57,8 @@ export default class Index extends Component {
 
   regionchange = (e) => { // 当地图视野发生变化进行的操作
     const that = this
-    console.log(e)
-    if(e.type == 'begin' && e.causedBy == '' && this.globalData.iconNumber != 0) {
+    console.log(this.globalData.iconNumber)
+    if(e.type == 'begin' && e.causedBy == '' && this.globalData.iconNumber > 0) {
       this.setState({
         iconbuuble: '在此上车'
       })
@@ -85,33 +84,31 @@ export default class Index extends Component {
     }
   }
 
-  getMarker = () =>{}
-
-  bindupdated = () =>{}
-
   moveToLocation = () => {
+    this.globalData.iconNumber = 0
     this.getLocation()
   }
 
+  onMyMap = (value) => {
+    this.mapCtxs = value
+  }
+
   render () {
-    let {nvabarData, subkey, longitude, latitude, markers, starword, iconbuuble} = this.state
+    let {nvabarData, longitude, latitude, markers, starword, iconbuuble} = this.state
+    let property = {
+      longitude,
+      latitude,
+      markers,
+    }
     return (
-      <View>
+      <view>
         <nav-bar navbar-data={nvabarData}></nav-bar>
-        <View className='map'>
-          <Map
-            id='myMap'
-            style='width: 100%;height: 100%'
-            subkey={subkey}
-            onRegionchange={this.regionchange}
-            latitude={latitude}
-            longitude={longitude}
-            markers={markers}
-            onMarkertap={this.getMarker}
-            onUpdated={this.bindupdated}
-            show-location
-          >
-          </Map>
+        <CompaniesMap
+          onMyMap={this.onMyMap}
+          property={property}
+          onMoveToLocation={this.moveToLocation}
+          onRegionchange={this.regionchange}
+        >
           {starword.isName &&
             <CoverView className='text-font'>
               <CoverView
@@ -126,15 +123,25 @@ export default class Index extends Component {
             </CoverView>
           }
           {latitude && <CoverImage className='icon-start' src={icoStart} />}
+        </CompaniesMap>
+        <View className='address'>
+          <View className='address-input address-start' onTap={this.startTap}>
+            {starword.isName || <Text className='address-placeholder'>上车站点</Text>}
+          </View>
+          <View className='address-text'>
+           {starword.isName && '已为您推荐最佳上车点'}
+          </View>
+          <View className='address-input address-end address-placeholder' onTap={this.endTap}>
+            下车站点
+          </View>
         </View>
-      </View>
+      </view>
     )
   }
 
   setPointLocation = () => { // 或者周围的站点
-    let starPoint =  this.globalData.starPoint;
-    let location = `${starPoint.latitude},${starPoint.latitude}`;
-    console.log(location)
+    /* let starPoint =  this.globalData.starPoint;
+    let location = `${starPoint.latitude},${starPoint.latitude}`; */
   }
 
   getLocation = () => { // 获取当前位置

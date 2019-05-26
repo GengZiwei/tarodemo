@@ -1,12 +1,12 @@
-import Taro, { Component } from '@tarojs/taro'
 import '@tarojs/async-await'
 import '@/utils/window'
+import Taro, { Component } from '@tarojs/taro'
 
 import TaroPromise from '@/utils/taroPamise'
 import utils from '@/utils/util';
 import Index from './pages/index'
 
-import {BasicInformation, OpenId, Login} from '@/utils/api'
+import HTTP_API from './api/index'
 import './app.less'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -19,7 +19,8 @@ class App extends Component {
 
   config = {
     "pages": [
-      "pages/index/index"
+      "pages/index/index",
+      "pages/login/index"
     ],
     "permission": {
       "scope.userLocation": {
@@ -40,7 +41,6 @@ class App extends Component {
   constructor(){
     super()
     this.globalData = {
-      subkey: 'SB2BZ-MIRKF-VZUJT-JDALZ-ZWY7H-RKBHX',
       stemInfo: null,
       city:'',
       openID: '', // wx用户的唯一标识id
@@ -57,7 +57,6 @@ class App extends Component {
 
   componentDidMount () {
     TaroPromise.getSystemInfo().then(res => { //获取设备的设备信息 brand 手机品牌 model 手机型号 version 微信版本)
-      console.log(res)
       this.globalData.stemInfo = res
     })
   }
@@ -83,11 +82,11 @@ class App extends Component {
       let openid = this.globalData.openID
 
       if(!openid) {
-        let id = await OpenId(code)
+        let id = await HTTP_API.OpenId(code)
         openid = id.value
         this.globalData.openID = openid
       }
-      let token = await Login(openid)
+      let token = await HTTP_API.Login(openid)
       return new Promise((resolve) => { // type 1 获取token成功
         token.value ? resolve({type: 1, value: token.value}) : function(){
           Taro.clearStorage()
@@ -100,7 +99,7 @@ class App extends Component {
   }
   BasicInformationList = () =>{
     let basicInList = this.globalData.basicInformationList;
-    basicInList.length == 0 && BasicInformation().then(res => {
+    basicInList.length == 0 && HTTP_API.BasicInformation().then(res => {
         let list = res.basicInformationList
         try {
           this.globalData.basicInformationList = {

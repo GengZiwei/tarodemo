@@ -32,7 +32,7 @@ Component({
     },
     //返回到首页
     _showCenter() {
-      app.navigateTo({
+      app.NavigateTo({
         url: '/pages/center/center',
       })
     }
