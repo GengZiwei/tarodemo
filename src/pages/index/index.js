@@ -12,10 +12,9 @@ import PROFILE from '@/api/profile'
 const app = Taro.getApp()
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '首页',
     "navigationStyle": "custom",
     "usingComponents": {
-      "nav-bar": "/components/navbar/index"
+      "nav-bar": "../../components/navbar/index"
     }
   }
   constructor () {

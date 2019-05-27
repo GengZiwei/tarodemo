@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Map, CoverImage } from '@tarojs/components';
 
+import './index.less'
 import iconReset from '@/image/ico-reset.png'
 
 export default class Index extends Component {

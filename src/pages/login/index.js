@@ -4,7 +4,7 @@ import { View} from '@tarojs/components';
 export default class Index extends Component {
 
    config = {
-    navigationBarTitleText: ''
+    navigationBarTitleText: '登陆/注册'
   }
 
   componentWillMount () {}
@@ -17,7 +17,7 @@ export default class Index extends Component {
   render() {
     return (
       <View>
-        
+        进行注册
       </View>
     );
   }

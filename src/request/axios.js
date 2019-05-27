@@ -2,6 +2,7 @@
 import Taro from '@tarojs/taro'
 import config from './config'
 import logError from '@/utils/logError'
+import { set as setGlobalData, get as getGlobalData } from '@/utils/global_data'
 /* 路测 */
 let api = process.env.HTTP_URL
 /**
@@ -12,6 +13,12 @@ let getToken = () =>{
     Authorization: '',
     operateAccountId: '',
     ApplicationId: 'PASSENGER',
+  }
+  let TOKEN = getGlobalData('TOKEN')
+  if(TOKEN) {
+    let str = TOKEN.tokenType.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
+    token['Authorization'] = str + ' ' +TOKEN.accessToken
+    token['operateAccountId'] = TOKEN.accountId
   }
   return token
 }
@@ -38,7 +45,8 @@ export default function(params, method = 'GET') {
             logError('api', '服务端出现了问题', params)
             break;
           }
-          case config.FORBIDDEN:{
+          case config.FORBIDDEN:{ // 默认自动化进行获取token获取
+            setGlobalData('TOKEN', null)
             logError('api', '没有权限访问', params)
             break;
           }

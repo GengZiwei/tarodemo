@@ -3,6 +3,7 @@ import '@/utils/window'
 import Taro, { Component } from '@tarojs/taro'
 
 import TaroPromise from '@/utils/taroPamise'
+import { set as setGlobalData, get as getGlobalData } from './utils/global_data'
 import utils from '@/utils/util';
 import Index from './pages/index'
 
@@ -44,7 +45,6 @@ class App extends Component {
       stemInfo: null,
       city:'',
       openID: '', // wx用户的唯一标识id
-      userInfo: null,
       basicInformationList: [],
       starPoint:{}, // 用户起点位置信息
       endPoint:{}, // 用户终点位置信息
@@ -65,7 +65,9 @@ class App extends Component {
 
   componentDidHide () {}
 
-  componentDidCatchError () {}
+  componentDidCatchError () {
+    console.log('触发error')
+  }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
@@ -74,7 +76,6 @@ class App extends Component {
       <Index />
       )
     }
-  
   istoken = () => {
     return new Promise((resolve) => { // type 1 获取token成功
       TaroPromise.login().then(wxCode => {
@@ -88,6 +89,7 @@ class App extends Component {
           HTTP_API.PROFILE_OpenId(code).then(open => {
             this.globalData.openID = openID = open.value;
             HTTP_API.AUTH_Login(openID).then(res => {
+              setGlobalData('TOKEN', res.value || null)
               resolve(res.value ? {type: 1, value: res.value} : {type: 0})
             })
           })
@@ -123,11 +125,12 @@ class App extends Component {
   }
   IsUser = (callback) => {
     const that = this;
-    let user = this.globalData.userInfo;
+    let user = getGlobalData('Userinfo');
     user ? function(){
       callback && callback(true)
-    }() : TaroPromise.getStorage('userInfo').then(res =>{
+    }() : TaroPromise.getStorage('Userinfo').then(res =>{
         that.globalData.userInfo = res.data;
+        setGlobalData('Userinfo', res.data)
         callback && callback(true)
       }).catch(() =>{
         that.globalData.userInfo = null
@@ -146,7 +149,7 @@ class App extends Component {
         })
       } else {
         Taro.navigateTo({
-          url: '/pages/login/login'
+          url: '/pages/login/index'
         })
       }
     }))

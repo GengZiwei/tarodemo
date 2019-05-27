@@ -11,5 +11,5 @@
   height: 78px;
   width: 78px;
   right: 40px;
-  bottom: 30rpx;
+  bottom: 30px;
 }
