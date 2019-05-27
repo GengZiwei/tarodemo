@@ -15,7 +15,7 @@ const config = {
     '828': 1.81 / 2
   },
   sourceRoot: 'src',
-  outputRoot: 'dist',
+  outputRoot: outputRoot,
   plugins: {
     babel: {
       sourceMap: true,
@@ -37,7 +37,7 @@ const config = {
     '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/image': path.resolve(__dirname, '..', 'src/image'),
-    '@/api': path.resolve(__dirname, '..', 'src/utils/api'),
+    '@/api': path.resolve(__dirname, '..', 'src/api'),
     '@/taroPamise': path.resolve(__dirname, '..', 'src/utils/taroPamise'),
   },
   copy: {

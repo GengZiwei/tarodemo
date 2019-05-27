@@ -1,8 +1,8 @@
-module.exports = {
+let mode = {
   env: {
     NODE_ENV: '"development"',
-    HTTP_URL: '"http://47.97.248.66:10080"',
-    SOCKET_URL: '"http://47.97.248.66:10080"'
+    HTTP_URL: '"http://47.102.104.108:8088"',
+    SOCKET_URL: '"http://47.102.104.108:8088"'
   },
   defineConstants: {
   },
@@ -10,3 +10,4 @@ module.exports = {
   },
   h5: {}
 }
+module.exports = mode

@@ -1,6 +1,6 @@
 import HTTP from '../request/axios'
 
-const BasicInformation = () => { // 获取基础信息表
+const SHUTTLE_BasicInformation = () => { // 获取基础信息表
   return HTTP({
     url: '/shuttle/api/v1/basicInformation/basicInformation',
     data: {
@@ -10,5 +10,5 @@ const BasicInformation = () => { // 获取基础信息表
 }
 
 export default {
-  BasicInformation
+  SHUTTLE_BasicInformation
 }

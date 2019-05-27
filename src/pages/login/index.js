@@ -4,10 +4,8 @@ import { View} from '@tarojs/components';
 export default class Index extends Component {
 
    config = {
-       navigationBarTitleText: ''
+    navigationBarTitleText: ''
   }
-
-  state={}
 
   componentWillMount () {}
   componentDidMount () {}

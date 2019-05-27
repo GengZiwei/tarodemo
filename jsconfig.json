@@ -5,7 +5,7 @@
       "@/components/*": ["./src/components/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/image": ["./src/image"],
-      "@/api": ["./src/utils/api"],
+      "@/api": ["./src/api"],
       "@/taroPamise": ["./src/utils/taroPamise"],
     }
   }

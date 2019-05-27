@@ -1,4 +1,4 @@
-module.exports = {
+let mode = {
   env: {
     NODE_ENV: '"production"',
     HTTP_URL: '"https://pinleba.ft.01zhuanche.com"',
@@ -18,3 +18,5 @@ module.exports = {
      */
   }
 }
+module.exports = mode
+

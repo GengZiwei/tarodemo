@@ -7,6 +7,7 @@ import './index.less'
 import icoStart from '@/image/ico-start.png'
 import iconSan from '@/image/iconsan.png'
 
+import PROFILE from '@/api/profile'
 
 const app = Taro.getApp()
 export default class Index extends Component {
@@ -14,7 +15,7 @@ export default class Index extends Component {
     navigationBarTitleText: '首页',
     "navigationStyle": "custom",
     "usingComponents": {
-      "nav-bar": "../../components/navbar/index"
+      "nav-bar": "/components/navbar/index"
     }
   }
   constructor () {
@@ -45,8 +46,49 @@ export default class Index extends Component {
       if(res.type == 1) {}
     })
   }
-  componentDidMount(){ // onReder
-    this.moveToLocation()
+  async componentDidMount(){ // onReder
+    let self = this
+    let sett = await TaroPromise.getSetting()
+    if(!sett.authSetting['scope.userLocation']) {
+      TaroPromise.authorize('scope.userLocation').then(() =>{ // 提前发起通知授权
+        self.getLocation()
+        }).catch(() => {
+          Taro.showModal({
+            title: '授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function(modal){
+              if(modal.confirm){
+                Taro.openSetting({
+                  success: function(data){
+                    if (data.authSetting["scope.userLocation"]){
+                      Taro.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1500
+                      })
+                      self.getLocation()
+                    } else {
+                      Taro.showToast({
+                        title: '授权失败',
+                        icon: 'none',
+                        duration: 1500
+                      })
+                    }
+                  }
+                })
+              } else {
+                Taro.showToast({
+                  title: '授权失败',
+                  icon: 'none',
+                  duration: 1500
+                })
+              }
+            }
+          })
+        })
+    } else {
+      self.getLocation()
+    }
   }
   componentDidShow(){ // onshow
   }
@@ -95,17 +137,14 @@ export default class Index extends Component {
 
   render () {
     let {nvabarData, longitude, latitude, markers, starword, iconbuuble} = this.state
-    let property = {
-      longitude,
-      latitude,
-      markers,
-    }
     return (
       <view>
         <nav-bar navbar-data={nvabarData}></nav-bar>
         <CompaniesMap
           onMyMap={this.onMyMap}
-          property={property}
+          longitude={longitude}
+          latitude={latitude}
+          markers={markers}
           onMoveToLocation={this.moveToLocation}
           onRegionchange={this.regionchange}
         >
@@ -140,8 +179,11 @@ export default class Index extends Component {
   }
 
   setPointLocation = () => { // 或者周围的站点
-    /* let starPoint =  this.globalData.starPoint;
-    let location = `${starPoint.latitude},${starPoint.latitude}`; */
+    let starPoint =  this.globalData.starPoint;
+    let location = `${starPoint.latitude},${starPoint.latitude}`;
+    PROFILE.QueryAround(location).then(() => {
+
+    })
   }
 
   getLocation = () => { // 获取当前位置
@@ -155,7 +197,7 @@ export default class Index extends Component {
       console.log('经纬度获取成功')
       that.setPointLocation()
     }).catch((error) => {
-      TaroPromise.showToast({
+      Taro.showToast({
         title: '地理位置授权获取失败',
         icon: 'none'
       })

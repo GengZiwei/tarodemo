@@ -1,6 +1,6 @@
 
 import Taro from '@tarojs/taro'
-import {NOT_FOUND, BAD_GATEWAY, FORBIDDEN, SUCCESS} from './config'
+import config from './config'
 import logError from '@/utils/logError'
 /* 路测 */
 let api = process.env.HTTP_URL
@@ -27,19 +27,19 @@ export default function(params, method = 'GET') {
       ...option,
       success(res){
         switch (res.statusCode) {
-          case NOT_FOUND:{
+          case config.NOT_FOUND:{
             logError('api', '请求资源不存在', params)
             break;
           }
-          case BAD_GATEWAY:{
+          case config.BAD_GATEWAY:{
             logError('api', '服务端出现了问题', params)
             break;
           }
-          case FORBIDDEN:{
+          case config.FORBIDDEN:{
             logError('api', '没有权限访问', params)
             break;
           }
-          case SUCCESS:{
+          case config.SUCCESS:{
             resolve(res.data)
             break;
           }

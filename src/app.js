@@ -75,31 +75,30 @@ class App extends Component {
       )
     }
   
-  istoken = async () => {
-    let wxCode = await TaroPromise.login();
-    try {
-      let code = wxCode.code;
-      let openid = this.globalData.openID
-
-      if(!openid) {
-        let id = await HTTP_API.OpenId(code)
-        openid = id.value
-        this.globalData.openID = openid
-      }
-      let token = await HTTP_API.Login(openid)
-      return new Promise((resolve) => { // type 1 获取token成功
-        token.value ? resolve({type: 1, value: token.value}) : function(){
-          Taro.clearStorage()
-          resolve({type: 0})
-        }()
+  istoken = () => {
+    return new Promise((resolve) => { // type 1 获取token成功
+      TaroPromise.login().then(wxCode => {
+        let code = wxCode.code;
+        let openID = this.globalData.openID
+        if(openID) {
+          HTTP_API.AUTH_Login(openID).then(res => {
+            resolve(res.value ? {type: 1, value: res.value} : {type: 0})
+          })
+        } else {
+          HTTP_API.PROFILE_OpenId(code).then(open => {
+            this.globalData.openID = openID = open.value;
+            HTTP_API.AUTH_Login(openID).then(res => {
+              resolve(res.value ? {type: 1, value: res.value} : {type: 0})
+            })
+          })
+        }
       })
-    } catch (error) {
-        return new Error('获取token出错')
-    }
+    })
   }
+
   BasicInformationList = () =>{
     let basicInList = this.globalData.basicInformationList;
-    basicInList.length == 0 && HTTP_API.BasicInformation().then(res => {
+    basicInList.length == 0 && HTTP_API.SHUTTLE_BasicInformation().then(res => {
         let list = res.basicInformationList
         try {
           this.globalData.basicInformationList = {

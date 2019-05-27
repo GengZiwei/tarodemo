@@ -1,6 +1,6 @@
 import HTTP from '../request/axios'
 
-const Login = (openid) => {
+const AUTH_Login = (openid) => {
   let params = {
     'client_id': 'client_auth_mode',
     'grant_type': 'password',
@@ -21,5 +21,5 @@ const Login = (openid) => {
 }
 
 export default {
-  Login
+  AUTH_Login
 }
