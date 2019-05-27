@@ -4,7 +4,7 @@ const path = require('path');
 
 const outputRoot = 'dist/' + (process.env.TARO_ENV || '');
 
-console.log(process.env.TARO_ENV)
+console.log(process.env)
 const config = {
   projectName: 'pinleba',
   date: '2019-5-21',

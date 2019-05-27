@@ -9,6 +9,9 @@ let api = process.env.HTTP_URL
  */
 let getToken = () =>{
   let token = {
+    Authorization: '',
+    operateAccountId: '',
+    ApplicationId: 'PASSENGER',
   }
   return token
 }
