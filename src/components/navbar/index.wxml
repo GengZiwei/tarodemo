@@ -1,10 +1,10 @@
-<view class='nav-wrap' style='height: {{height +  28}}px;'>
+<view class='nav-wrap' style='height: {{height}}px;'>
     <!-- // 导航栏 中间的标题 -->
-  <view class='nav-title' style='height: {{height + 28}}px;line-height: {{height + 40}}px;'>{{navbarData.title}}</view>
+  <view class='nav-title' style='height: {{height}}px;line-height: {{height}}px;'>{{navbarData.title}}</view>
   <view style='display: flex; justify-content: space-around;flex-direction: column'>
       <!-- // 导航栏  左上角的返回按钮 和home按钮 -->
       <!-- //  其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
-    <view class='nav-capsule' style='height: {{height + 28}}px;' wx:if='{{navbarData.showCapsule}}'>
+    <view class='nav-capsule' style='height: {{height}}px;' wx:if='{{navbarData.showCapsule}}'>
        <!-- //左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
        <!-- //从分享进入小程序时 返回上一级按钮不应该存在 -->
       <view bindtap='_showCenter' style="padding-right: 10rpx" wx:if='{{navbarData.i_center}}'>

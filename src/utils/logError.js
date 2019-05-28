@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 /**
  * @description 对错误信息的收集
  * @param {*} type 错误的类型
@@ -9,11 +10,11 @@ const logError  = (type, action = '', info = '') =>{
   if (typeof info === 'object') {
     info = JSON.stringify(info)
   }
-  console.error(`
+  /* console.error(`
   类型：${type};
   时间：${time};
   描述：${action};
   结果：${info}
-  `)
+  `) */
 }
 export default logError

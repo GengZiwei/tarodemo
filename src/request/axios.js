@@ -10,8 +10,8 @@ let api = process.env.HTTP_URL
  */
 let getToken = () =>{
   let token = {
-    Authorization: '',
-    operateAccountId: '',
+    Authorization: '1',
+    operateAccountId: '1',
     ApplicationId: 'PASSENGER',
   }
   let TOKEN = getGlobalData('TOKEN')

@@ -9,7 +9,10 @@ import Index from './pages/index'
 
 import HTTP_API from './api/index'
 import './app.less'
+let mta = require('mta-wechat-analysis')
+if(process.env.TARO_ENV === 'weapp'){
 
+}
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
@@ -55,19 +58,43 @@ class App extends Component {
     }
 }
 
-  componentDidMount () {
+  componentDidMount (options) {
+    mta.App.init({
+      "appID":"500684671",
+      "eventID":"500684681",
+      "lauchOpts":options,
+      "autoReport": true,
+      "statParam": true,
+      "ignoreParams": ["id","time"]
+    });
     TaroPromise.getSystemInfo().then(res => { //获取设备的设备信息 brand 手机品牌 model 手机型号 version 微信版本)
       this.globalData.stemInfo = res
+      console.log('locationEnabled', res)
     })
+    let BoundingClientRect = Taro.getMenuButtonBoundingClientRect()
+    setGlobalData('tabHeight', BoundingClientRect.height + BoundingClientRect.top + 10)
+    console.log(this.getGlobalData('tabHeight'))
   }
 
   componentDidShow () {}
 
   componentDidHide () {}
 
-  componentDidCatchError () {
-    console.log('触发error')
+  componentDidCatchError (e) {
+    console.log('触发error', e)
   }
+
+  setGlobalData = (key, value) =>{
+    setGlobalData(key, value)
+  }
+  getGlobalData = (key) => {
+    return getGlobalData(key)
+  }
+
+  event_mta = (value) => {
+    mta.Event.stat("on_click",value)
+  }
+
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
@@ -139,7 +166,6 @@ class App extends Component {
   }
   NavigateTo = ({url = '', params = {}}, redirectTo= false) =>{
     url += utils.paramStr(params)
-    this.BasicInformationList()
     this.IsUser((res => {
       if(res){
         redirectTo ? Taro.redirectTo({

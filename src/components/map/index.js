@@ -4,6 +4,8 @@ import { View, Map, CoverImage } from '@tarojs/components';
 import './index.less'
 import iconReset from '@/image/ico-reset.png'
 
+const app = Taro.getApp()
+
 export default class Index extends Component {
 
   static defaultProps = {
@@ -15,7 +17,14 @@ export default class Index extends Component {
     onMoveToLocation: () => null, // 移动地图到当前定位点
   }
 
+  state = {
+    height: ''
+  }
+
   componentWillMount () {
+    this.setState({
+      height: app.getGlobalData('tabHeight')
+    })
     this.mapCtxs = Taro.createMapContext('myMap', this.$scope);
     this.props.onMyMap(this.mapCtxs)
   }
@@ -32,7 +41,9 @@ export default class Index extends Component {
   render() {
     let { polyline, markers, longitude, latitude } = this.props
     return (
-      <View className='map'>
+      <View className='map' style={{
+        top: this.state.height + 'px'
+      }}>
       <Map
         id='myMap'
         subkey='SB2BZ-MIRKF-VZUJT-JDALZ-ZWY7H-RKBHX'

@@ -22,7 +22,7 @@ Component({
   attached: function () {
     // 定义导航栏的高度   方便对齐
     this.setData({
-      height: (app.globalData.stemInfo.height || 20) * 2
+      height: app.getGlobalData('tabHeight')
     })
   },
   methods: {

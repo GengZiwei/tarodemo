@@ -29,9 +29,7 @@ export default class Index extends Component {
       latitude: '',
       longitude: '',
       markers: [], // 当前的站点
-      starword: {
-        isName: '12'
-      }, // 当前上车站点
+      starword: {}, // 当前上车站点
       iconbuuble: '拖动地图更换上车点'
     }
     this.globalData = {
@@ -42,7 +40,9 @@ export default class Index extends Component {
   }
   componentWillMount(){ // onLaunch
     app.istoken().then(res => {
-      if(res.type == 1) {}
+      if(res.type == 1) {
+        app.BasicInformationList()
+      }
     })
   }
   async componentDidMount(){ // onReder
@@ -132,6 +132,10 @@ export default class Index extends Component {
 
   onMyMap = (value) => {
     this.mapCtxs = value
+  }
+
+  startTap = () => {
+    app.event_mta({'start':'true'})
   }
 
   render () {
